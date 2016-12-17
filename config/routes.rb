@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  root "pages#index"
+
+  get '/home' => 'pages#home'
+
+  get '/hub' => 'pages#hub'
+
+  get '/explore' => 'pages#explore'
   #get 'control/index'
-  root "control#index"
+  
 
   #get "demo/index"
   match ':controller(/:action(/:id))', :via => :get
