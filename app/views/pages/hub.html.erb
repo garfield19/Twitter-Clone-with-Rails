@@ -19,16 +19,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-6">
-		<%= render('components/update_form') %>
-	
-		<% for @p in @updates %>
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<p><%= @p.content %></p>
-			</div>
-		</div>
-		<% end %>
+	<%= render "components/update_feed" %> 
 	</div>
 	
 	<div class="col-xs-3">

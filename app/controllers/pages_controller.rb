@@ -8,6 +8,7 @@ class PagesController < ApplicationController
 #back end code for pages/home
   def home
   	@updates = Update.all
+    @newUpdate=Update.new
   end
 #back end code for pages/hub
   def hub
