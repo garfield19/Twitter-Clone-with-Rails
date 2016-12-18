@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :updates
-  root "pages#home"
+  root "pages#index"
 
   get '/home' => 'pages#home'
 
