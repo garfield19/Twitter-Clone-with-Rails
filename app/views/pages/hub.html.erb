@@ -1,7 +1,7 @@
 <div class ="row">
 	<div class ="col-xs-12">
 		<div class = "jumbotron">
-			<p> HEADER </P>
+			<p> <%= @username %> </P>
 	</div>
 	
 </div>
@@ -13,35 +13,33 @@
 				<p>stats/options</p>
 			</div>
 		</div>
-	</div>
-	<div class="col-xs-6">
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<p>feed</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-3">
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<p>about/options</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-3">
 		<div class="panel panel-default">
   			<div class="panel-body">
 				<p>communities/ menus</p>
 			</div>
 		</div>
 	</div>
+	<div class="col-xs-6">
+		<%= render('components/update_form') %>
 	
-  <div class="col-xs-3 col-xs-offset-6">
-  	<div class="panel panel-default">
+		<% for @p in @updates %>
+		<div class="panel panel-default">
+  			<div class="panel-body">
+				<p><%= @p.content %></p>
+			</div>
+		</div>
+		<% end %>
+	</div>
+	
+	<div class="col-xs-3">
+		<div class="panel panel-default">
+  			<div class="panel-body">
+				<p>about/options</p>
+			</div>
+		</div>
+			<div class="panel panel-default">
   			<div class="panel-body">
   				<p>top activities</p>
   			</div>
   		</div>
-  	</div>
-  
-</div>
+	</div>

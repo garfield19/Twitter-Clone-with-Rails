@@ -5,22 +5,6 @@
 				<p>stats/options</p>
 			</div>
 		</div>
-	</div>
-	<div class="col-xs-6">
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<p>feed</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-3">
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<p>about/options</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-3">
 		<div class="panel panel-default">
   			<div class="panel-body">
 				<p>communities/ menus</p>
@@ -28,12 +12,25 @@
 		</div>
 	</div>
 	
-  <div class="col-xs-3 col-xs-offset-6">
-  	<div class="panel panel-default">
+	<div class="col-xs-6">
+		<% for @p in @updates %>
+		<div class="panel panel-default">
+  			<div class="panel-body">
+				<p><%= @p.content %></p>
+			</div>
+		</div>
+		<% end %>
+	</div>
+	
+	<div class="col-xs-3">
+		<div class="panel panel-default">
+  			<div class="panel-body">
+				<p>about/options</p>
+			</div>
+		</div>
+			<div class="panel panel-default">
   			<div class="panel-body">
   				<p>top activities</p>
   			</div>
   		</div>
-  	</div>
-  
-</div>
+	</div>

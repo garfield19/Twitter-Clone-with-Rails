@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "pages#index"
+  resources :updates
+  root "pages#home"
 
   get '/home' => 'pages#home'
 
-  get '/hub' => 'pages#hub'
+  get '/user/:id' => 'pages#hub'
 
   get '/explore' => 'pages#explore'
   #get 'control/index'
