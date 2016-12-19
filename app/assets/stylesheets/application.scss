@@ -57,3 +57,30 @@ margin-left: 15px;
 .post-form-panel{
 	margin-bottom: -21px;
 }
+.panel-image img.panel-image-preview{
+	width: 100%;
+	border-radius: 4px 4px 0px 0px;
+}
+.panel-heading ~ .panel-image img.panel-image-preview{
+	border-radius: 0px;
+}
+.panel-heading ~ .panel-body, .panel-image.hide-panel ~ .panel-body{
+overflow: hidden;
+}
+.panel-image ~ .panel-footer a{
+	padding: 0px 10px;
+	font-size: 1.3em;
+	color: rgb(100,100,100);
+}
+.panel-image.hide-panel-body ~ .panel-body{
+	height: 0px;
+	padding: 0px;
+}
+.home-avatar{
+	border-radius: 10px 10px 10px 10px;
+	margin-top: -50%;
+	text-align: center;
+}
+.profile-banner{
+
+}

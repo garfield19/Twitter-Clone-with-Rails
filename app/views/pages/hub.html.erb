@@ -1,13 +1,14 @@
 <div class ="row">
 	<div class ="col-xs-12">
-		<div class = "jumbotron">
+				<div class="jumbotron">
 			<p> <%= @username %> </P>
 	</div>
 	
-</div>
+</div></div>
 
 <div class = "row">
 	<div class="col-xs-3">
+		<%= render '/components/network_button', :user => User.find_by_username(params[:id]) %>
 		<div class="panel panel-default">
   			<div class="panel-body">
 				<p>stats/options</p>
