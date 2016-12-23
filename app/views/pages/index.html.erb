@@ -1,5 +1,6 @@
 <% if !user_signed_in? %>
 <style type="text/css">
+
 h1,
 h2,
 h3,
@@ -45,9 +46,13 @@ margin-top:5%;
     color: white;
 }
 .log-in{
-    float: right;
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 200px;
+}
+.sign-up{
+    width: 300px;
+    height: 400px;
+   
 }
 </style>
 <div class="container-index">
@@ -61,9 +66,14 @@ margin-top:5%;
                     </div>
       
                 </div>
-                <div class="col-sm-5">
-<div class"log-in panel"> 
-jvujyvjyu</div>
+<div class="col-sm-5">
+  <div class="panel panel-default log-in">
+<%= render "devise/sessions/new" %>
+
+<div class="panel panel-default sign-up">
+<%= render "devise/registrations/new" %>
+</div>
+</div>
 </div>
 <div class"log-in panel"> 
 jvujyvjyu</div>

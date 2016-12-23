@@ -6,27 +6,25 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="vendor/device-mockups/device-mockups.min.css">
-
-    <!-- Theme CSS -->
-    <link href="css/new-age.min.css" rel="stylesheet">
+    <style type="text/css">
+    
+    </style>
   </head>
 
   <body>
+    <% if notice %>
+    <div id="notice_wrapper">
+<p class="notice"><%= notice %></p>
+    </div>
+    <% elsif alert %>
+<div id="notice_wrapper">
+<p class="alert"><%= alert %></p>
+    </div>
+<% end %>
   	<%= render '/layouts/nav' %>
+
   	<div class="container">
-  		<span class="notice"><%= notice %></span>
-       <span class="alert"><%= alert %></span>
+  		
   <%= yield %>
 </div>
     

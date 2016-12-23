@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users , controllers: { confirmations: 'confirmations' }
   resources :relationships
   resources :users do
     member do
       get :following, :followers
       end 
     end
-  resources :updates
+   resources :updates
 
   root "pages#index"
 

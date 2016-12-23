@@ -7,7 +7,10 @@ class PagesController < ApplicationController
 
 #back end code for pages/home
   def home
-  	@updates = Update.all
+      following_ids = "SELECT followed_id FROM relationships
+      WHERE follower_id = ? "
+    @updates = Update.all.where("user_id IN(#{following_ids}) OR
+      user_id = ?",current_user.id,current_user.id)
     @newUpdate=Update.new
   end
 #back end code for pages/hub
