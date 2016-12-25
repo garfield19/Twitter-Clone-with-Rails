@@ -7,7 +7,8 @@
   					 avatar
   				</div>
   				<div class="col-sm-11">
-  					<p class ="post-title"> <span class = "post-user"><%= User.find(@p.user_id).username %> </span>- <span class="post-creation"><%= @p.created_at.to_formatted_s(:short) %></span></p>
+  					<p class ="post-title"> <span class = "post-user"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %> </a> </span>- <span class="post-creation"><%= @p.created_at.to_formatted_s(:short) %></span></p>
+
   					 <p class ="post-content"><%= @p.content %></p>
   				</div>
   				<div class="col-sm-12">

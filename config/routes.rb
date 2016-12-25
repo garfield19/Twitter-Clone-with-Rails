@@ -9,6 +9,8 @@ Rails.application.routes.draw do
    resources :updates
 
   root "pages#index"
+  get '/home/hashtags/',         to: 'hashtags#index',     as: :hashtags
+get '/hashtags/:hashtag', to: 'hashtags#show',      as: :hashtag
 
   get '/home' => 'pages#home'
 

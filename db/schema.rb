@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223085235) do
+ActiveRecord::Schema.define(version: 20161224000747) do
 
   create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "subject_id"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20161223085235) do
     t.datetime "updated_at",                 null: false
     t.index ["permalink"], name: "index_pages_on_permalink", using: :btree
     t.index ["subject_id"], name: "index_pages_on_subject_id", using: :btree
+  end
+
+  create_table "posts_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "updates_id"
+    t.integer "tag_id"
+    t.index ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
+    t.index ["updates_id"], name: "index_posts_tags_on_updates_id", using: :btree
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,12 +53,33 @@ ActiveRecord::Schema.define(version: 20161223085235) do
     t.index ["page_id"], name: "index_sections_on_page_id", using: :btree
   end
 
+  create_table "simple_hashtag_hashtaggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "hashtag_id"
+    t.string  "hashtaggable_type"
+    t.integer "hashtaggable_id"
+    t.index ["hashtag_id"], name: "index_simple_hashtag_hashtaggings_on_hashtag_id", using: :btree
+    t.index ["hashtaggable_id", "hashtaggable_type"], name: "index_hashtaggings_hashtaggable_id_hashtaggable_type", using: :btree
+  end
+
+  create_table "simple_hashtag_hashtags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["name"], name: "index_simple_hashtag_hashtags_on_name", using: :btree
+  end
+
   create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "position"
     t.boolean  "visible",    default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -87,5 +115,7 @@ ActiveRecord::Schema.define(version: 20161223085235) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "posts_tags", "tags"
+  add_foreign_key "posts_tags", "updates", column: "updates_id"
   add_foreign_key "updates", "users"
 end

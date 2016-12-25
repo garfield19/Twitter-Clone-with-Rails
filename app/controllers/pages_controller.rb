@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+require 'twitter-text'
+include Twitter::Autolink
  #back end code for pages/index
   
   def index

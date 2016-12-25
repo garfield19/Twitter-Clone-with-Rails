@@ -1,4 +1,5 @@
 class UpdatesController < ApplicationController
+	
 	def new
 		@updates = Update.new
 	end

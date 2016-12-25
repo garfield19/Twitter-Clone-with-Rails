@@ -1,5 +1,7 @@
 module ApplicationHelper
-
+require'twitter-text'
+include Twitter::Extractor
+#include Twitter::Autolink
   def resource_name
     :user
   end

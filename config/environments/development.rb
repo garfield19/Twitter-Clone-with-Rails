@@ -9,11 +9,11 @@ config.action_mailer.raise_delivery_errors = true # to raise error if smtp has e
 config.action_mailer.default :charset => "utf-8"
        config.action_mailer.smtp_settings = {
        :address              => "smtp.gmail.com",
-       :port                 => 587,
-       :domain              =>"mail.google.com"
+       :domain              =>"mail.google.com",
        :user_name            => "dharmie19@gmail.com",
        :password             => '123456789dharmie',
        :authentication       => "plain",
+       :port                 => 587,
        :enable_starttls_auto => true
        }
   #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
