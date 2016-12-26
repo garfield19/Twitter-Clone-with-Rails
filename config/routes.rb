@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       end 
     end
    resources :updates
+   resources :messages do
+      resources :comments
+    end
+   get '/messages' => 'messages#index'
 
   root "pages#index"
   get '/home/hashtags/',         to: 'hashtags#index',     as: :hashtags

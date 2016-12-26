@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'simple_hashtag'
+gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'twitter-text', '~> 1.14', '>= 1.14.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
