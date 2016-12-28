@@ -12,9 +12,16 @@
   					 <p class ="post-content"><%= @p.content %></p>
   				</div>
   				<div class="col-sm-12">
-  					 <p class="post-links">
-  					 <span class="glyphicon glyphicon-thumbs-up g-links" aria-hidden = "true"></span>
-  					<span class="glyphicon glyphicon-thumbs-down g-links" aria-hidden = "true"></span>
+  					<%= link_to like_update_path(@p), class: "like", method: :put do %> <button type="button" class="btn btn-info" aria-label="left Align">
+              <span class="glyphicon glyphicon-thumbs-up g-links" aria-hidden = "true"></span>
+               <span class="badge"><%= @p.get_upvotes.size %></span> 
+             </button>
+            <% end %>
+            <%= link_to unlike_update_path(@p), class: "like", method: :put do %> <button type="button" class="btn btn-info" aria-label="left Align">
+              <span class="glyphicon glyphicon-thumbs-down g-links" aria-hidden = "true"></span>
+               <span class="badge"><%= @p.get_downvotes.size %></span> 
+             </button>
+            <% end %>
   						 <span class="glyphicon glyphicon-share-alt g-links" aria-hidden = "true"></span>
   						 <span class="glyphicon glyphicon-star g-links" aria-hidden = "true"></span></p>
   				</div>

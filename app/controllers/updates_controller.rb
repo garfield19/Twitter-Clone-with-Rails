@@ -1,5 +1,16 @@
 class UpdatesController < ApplicationController
+	before_action :set_update
+	before_action :authenticate_user!, only:[:new,:upvote]
 	
+	respond_to :js, :json, :html
+def upvote
+		@update.upvote_from current_user
+		redirect_to(:back)
+	end
+	def downvote
+		@update.downvote_from current_user
+		redirect_to(:back)
+	end
 	def new
 		@updates = Update.new
 	end
@@ -14,11 +25,16 @@ class UpdatesController < ApplicationController
 			end
 
 	end
+	
+	
 end
 private
 def update_params
 	params.require(:update).permit(:user_id, :content)
 
-end
-	
+	end
+	def set_update
+		@update = Update.find(params[:id])
+	end
+
 end

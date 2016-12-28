@@ -1,4 +1,5 @@
 <%= simple_form_for @message do |f| %>
+	<%= f.collection_select :category_id, Category.all,:id , :name, {prompt: "Choose a category"},label: "Category", class: "form-control"%>
   <%= f.input :title, label: "Message Title" %>
   <%= f.input :description %>
   <%= f.input :contact, label: "Phone Number" %>

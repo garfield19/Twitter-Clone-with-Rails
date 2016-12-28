@@ -1,6 +1,8 @@
 class ConfirmationsController < Devise::ConfirmationsController
   private
   def after_confirmation_path_for(resource_name, resource)
-    your_new_after_confirmation_path
+    #render 'devise/registrations/new_user_details'
+	#render 'devise/shared/links' 
+	user_steps_path(resource)
   end
 end

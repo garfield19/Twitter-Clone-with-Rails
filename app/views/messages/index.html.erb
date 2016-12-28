@@ -30,6 +30,10 @@
   			<div class="panel-body">
 				<p><%= link_to('Message Board', messages_path) %></p>
 				<p> Message categories </p>
+        <p><% Category.all.each do |category| %>
+          <li>
+         <%= link_to category.name, messages_path(category: category.name) %> </li>
+         <% end %>
 			</div>
 		</div>
 	</div>

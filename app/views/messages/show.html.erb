@@ -1,4 +1,44 @@
-<div class="col-md-8 col-md-offset-2"> 
+<div class = "row">
+	<div class="col-md-3">
+		<div class="panel panel-default">
+  			<div class="panel-image hide-panel-body">
+  				<img src="/banner.jpg" class="panel-image-preview">
+  			</div>
+  			<div class= "panel-footer text-center">
+  				<div class="row">
+  					<div class="col-sm-2"><img src="/avatar.jpg" height="50px" width="50px" class="rounded-img home-avatar"></div>
+  					<div class="col-sm-10"><h4 style="text-align: center;"><%= current_user.username %></h4></div>
+  					<div class="col-sm-12" style="margin-top:10px;">
+  						<div class="col-sm-4">
+  								<h4 style="font-size:200%; opacity:0.7; font-weight:bold;"> <%= current_user.messages.count %></h4>
+							<h4 style="color:black; font-size:80%;">Messages</h4>
+  						</div>
+  							<div class="col-sm-4">
+  								<h4 style="font-size:200%; opacity:0.7; font-weight:bold;"> <%= current_user.followers.count %></h4>
+							<h4 style="color:black; font-size:80%;">Networks</h4>
+  						</div>
+              <div class="col-sm-4">
+                  <h4 style="font-size:200%; opacity:0.7; font-weight:bold;"> <%= current_user.following.count %></h4>
+              <h4 style="color:black; font-size:80%;">Connects</h4>
+              </div>
+              <p><%= link_to "New Message", new_message_path , :class => 'btn btn-danger'%><p>
+  					</div>
+  				</div>
+  			</div>
+		</div>
+		<div class="panel panel-default">
+  			<div class="panel-body">
+				<p><%= link_to('Message Board', messages_path) %></p>
+				<p> Message categories </p>
+        <p><% Category.all.each do |category| %>
+          <li>
+         <%= link_to category.name, messages_path(category: category.name) %> </li>
+         <% end %>
+			</div>
+		</div>
+	</div>
+
+<div class="col-md-8"> 
 	<div class="message-show">
 	<h2 > <%= @message.title %> </h2>
 	<p class="message-posted-by"> Posted by <a href="/user/<%= @message.user.username %>"><%= @message.user.username %></a> <%= time_ago_in_words(@message.created_at) %>ago</p>

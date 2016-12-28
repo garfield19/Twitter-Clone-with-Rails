@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users , controllers: { confirmations: 'confirmations' }
   resources :relationships
+  resources :user_steps
   resources :users do
     member do
       get :following, :followers
       end 
     end
-   resources :updates
+   resources :updates do
+    member do
+      put "like" => "updates#upvote"
+      put "unlike" => "updates#downvote"
+    end
+  end
    resources :messages do
       resources :comments
     end

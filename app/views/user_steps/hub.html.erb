@@ -1,0 +1,18 @@
+ <%= form_for @user, url: wizard_path do |f| %>
+ <div class="col-md-8 col-md-offset-2"> <center>
+ 	<H1> Hi, <%= current_user.first_name %> Lets help setup your account </h1>
+</center>
+ <div class="field">
+    <%= f.label :hub_type %><br />
+    <%= f.text_field :hub_type, class: "form-control"%>
+  </div>
+<div class="field">
+    <%= f.label :cover_img %><br />
+    <%= f.text_field :cover_img, class: "form-control"%>
+  </div>
+ <div class="actions">
+  	<%= f.submit "Continue" %>
+  	or <%= link_to "skip this step", next_wizard_path %>
+  	</div> 
+  		<% end %>
+</div>

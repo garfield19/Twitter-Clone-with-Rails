@@ -2,7 +2,12 @@ class MessagesController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_message, only: [:show, :edit, :update, :destroy]
 	def index
+		if params[:category].blank?
 		@messages = Message.all.order("created_at DESC")
+	else
+		@category_id = Category.find_by(name: params[:category]).id
+		@messages = Message.where(category_id: @category_id).order("created_at DESC")
+	end
 	end
 
 	def new
@@ -34,7 +39,7 @@ def destroy
 end
 	private
 	def message_params
-		params.require(:message).permit(:title, :description, :contact)
+		params.require(:message).permit(:title, :description, :contact, :category_id)
 	end
 	def find_message
 		@message = Message.find(params[:id])

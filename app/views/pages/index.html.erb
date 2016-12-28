@@ -7,13 +7,19 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+  
   font-weight: 200;
   letter-spacing: 1px;
 }
 h1{
 color: white;
 font-weight: bold;
+}
+h2{
+  font-weight: 100;
+  font-size: 15px;
+  letter-spacing: 0px;
+  text-align: center;
 }
 .container-index{
     margin-right: 15%;
@@ -47,13 +53,16 @@ margin-top:5%;
 }
 .log-in{
     width: 300px;
-    height: 200px;
+    height: 230px;
 }
 .sign-up{
     width: 300px;
-    height: 400px;
-   
+    height: 200px;
 }
+.centerText{
+  text-align: center;
+}
+
 </style>
 <div class="container-index">
      <div class="row">
@@ -69,18 +78,28 @@ margin-top:5%;
 <div class="col-sm-5">
   <div class="panel panel-default log-in">
 <%= render "devise/sessions/new" %>
-
+</div>
 <div class="panel panel-default sign-up">
-<%= render "devise/registrations/new" %>
+  <center>
+  <img src="/icon.png" height="50px" width="50px" >
+  
+  <h2><b>Join the REHO Community<p></b>Reho is a network of connected hubs and communities of millions of people
+just like you, looking to network, grow & helping each other succeed.</br>
+Join them; it takes less than a minute:</h2>
+<span class="btn btn-warning">
+<%= link_to('Sign Up', new_user_registration_path) %>
+</span>
+</center>
 </div>
 </div>
 </div>
-<div class"log-in panel"> 
-jvujyvjyu</div>
+
 </div>
 </div>
 <div class="col-sm-12">
 <p class= "footer-links"> &copy; REHO 2016</p> </div>
-<% else %>
+<% elsif current_user.sign_in_count <= 1 %>
+  <script type="text/javascript">document.location ="/user_steps/"</script> 
+ <% else %>
 <script type="text/javascript">document.location ="/home"</script>
 <% end %>
