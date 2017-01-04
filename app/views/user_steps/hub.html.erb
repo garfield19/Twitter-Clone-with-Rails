@@ -10,6 +10,26 @@
     <%= f.label :cover_img %><br />
     <%= f.text_field :cover_img, class: "form-control"%>
   </div>
+  <div class="field">
+    <%= f.label 'interest_music', 'Music'%>
+    <%= check_box_tag 'user[interest][]', 'Music', checked('Music'), id: 'interest_music' %>
+    
+    <%= f.label 'interest_politics', 'Politics'%>
+    <%= check_box_tag 'user[interest][]', 'Politics', checked('Politics'), id: 'interest_politics' %>
+
+    <%= f.label 'interest_fashion', 'Fashion'%>
+    <%= check_box_tag 'user[interest][]', 'Fashion', checked('Fashion') ,id: 'interest_fashion' %>
+    
+    <%= f.label 'interest_sports', 'Sports'%>
+    <%= check_box_tag 'user[interest][]', 'Sports', checked('Sports') ,id: 'interest_sports' %>
+    
+    <%= f.label 'interest_education', 'Education'%>
+    <%= check_box_tag 'user[interest][]', 'Education', checked('Education'), id: 'interest_education' %>
+    
+    <%= f.label 'interest_technology', 'Technology'%>
+    <%= check_box_tag 'user[interest][]', 'Technology', checked('Technology'), id: 'interest_technology' %>
+
+  </div>
  <div class="actions">
   	<%= f.submit "Continue" %>
   	or <%= link_to "skip this step", next_wizard_path %>

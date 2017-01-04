@@ -7,6 +7,12 @@ Rails.application.routes.draw do
       get :following, :followers
       end 
     end
+    resources :users do
+    member do
+      get "connects" => "users#connects"
+      get "networks" => "users#networks"
+      end 
+    end
    resources :updates do
     member do
       put "like" => "updates#upvote"
@@ -19,16 +25,18 @@ Rails.application.routes.draw do
    get '/messages' => 'messages#index'
 
   root "pages#index"
+  match '/users', to: 'users#index', via: 'get'
   get '/home/hashtags/',         to: 'hashtags#index',     as: :hashtags
 get '/hashtags/:hashtag', to: 'hashtags#show',      as: :hashtag
 
   get '/home' => 'pages#home'
+  #get '/users/connects' => 'users#connects'
 
   get '/user/:id' => 'pages#hub'
 
   get '/explore' => 'pages#explore'
   #get 'control/index'
-  
+  #get '/assets/fonts/muli.woff2' => 'assets/fonts'
 
   #get "demo/index"
   match ':controller(/:action(/:id))', :via => :get

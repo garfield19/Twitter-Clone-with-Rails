@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
 	def index
 		if params[:category].blank?
 		@messages = Message.all.order("created_at DESC")
+		#@messages = Message.paginate(message: params[:message], per_message: 15).order('created_at DESC')
 	else
 		@category_id = Category.find_by(name: params[:category]).id
 		@messages = Message.where(category_id: @category_id).order("created_at DESC")

@@ -11,8 +11,14 @@ gem 'puma', '~> 3.0'
 gem 'wicked'
 gem 'paperclip'
 gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
 gem 'acts_as_votable'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+gem 'fb_graph'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

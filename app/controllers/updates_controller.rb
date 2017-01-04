@@ -1,5 +1,5 @@
 class UpdatesController < ApplicationController
-	before_action :set_update
+	before_action :set_update, only:[:upvote, :downvote]
 	before_action :authenticate_user!, only:[:new,:upvote]
 	
 	respond_to :js, :json, :html
@@ -19,7 +19,7 @@ def upvote
 		@updates.user_id = current_user.id
 		respond_to do |f|
 			if (@updates.save)
-				f.html {redirect_to "", Notice: "Update Successful"}
+				f.html {redirect_to (:back), Notice: "Update Successful"}
 			else
 				f.html {redirect_to "", Notice: "Update Failed"}
 			end

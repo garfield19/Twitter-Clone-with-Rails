@@ -1,4 +1,4 @@
-<%= form_for @user, url: wizard_path do |f| %>
+<%= form_for @user,url: wizard_path, :html => {:multipart => true} do |f| %>
 
 <div class="col-md-8 col-md-offset-2"> 
 	<H1> Tell us a little bit about yourself</H1>
@@ -12,8 +12,7 @@
     <%= f.label :about %><br />
     <%= f.text_field :about,  class: "form-control"%>
   </div><div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.text_field :avatar,  class: "form-control"%>
+    <%= f.file_field :avatar %>
   </div><div class="field">
     <%= f.label :interest %><br />
     <%= f.text_field :interest,  class: "form-control"%>

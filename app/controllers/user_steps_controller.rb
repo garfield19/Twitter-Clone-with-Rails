@@ -3,6 +3,7 @@ include Wicked::Wizard
 before_action :authenticate_user!
 steps :personal, :hub
 
+
 def show
 	@user = current_user
 	render_wizard
@@ -10,7 +11,7 @@ end
 
 def update
 	@user = current_user
-	@user.attributes = params[:user].permit(:first_name, :last_mame, :about, :birthday, :interest, :avatar)
+	@user.attributes = params[:user].permit(:first_name, :last_name, :about, :birthday,  :avatar, interest:[])
 
 	render_wizard @user
 end
