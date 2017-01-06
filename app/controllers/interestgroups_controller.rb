@@ -1,5 +1,6 @@
 class InterestgroupsController < ApplicationController
-	before_action :find_interestgroup, only: [:show, :destroy]
+	before_action :find_interestgroup, only: [:show, :destroy, :upvote]
+	before_action :authenticate_user!
 	def index
 		@title = "Interest Group"
 		if params[:interest].blank?
@@ -10,6 +11,10 @@ class InterestgroupsController < ApplicationController
 		#checking user access here
 		@interestgroups = Interestgroup.where(interest: params[:interest]).order("created_at DESC")
 	end
+	end
+	def upvote
+		@interestgroup.upvote_by current_user
+		redirect_to :back
 	end
 	def show
 		
@@ -31,6 +36,7 @@ class InterestgroupsController < ApplicationController
 		redirect_to interestgroups_path
 		
 	end
+
 	private
 	def interestgroups_params
 		params.require(:interestgroup).permit(:post, :interest, :interesttype)

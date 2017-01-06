@@ -1,3 +1,20 @@
-<%= @interestgroup.post %>
-Submitted by <%= @interestgroup.user.username %>
-<%= link_to 'Delete', interestgroup_path, method: :delete, data: {confirm: "Are you sure"} %>
+<div class="col-md-8 col-md-offset-2">
+	<div class="panel panel-default">
+		<div class="panel-body"><%= @interestgroup.post %> </div>
+<div class="panel-footer">
+	<div class="row">
+		<div class="col-md-6"> <b><%= @interestgroup.interesttype %>
+Submitted by <a href="/user/<%= @interestgroup.user.username %>"><%= @interestgroup.user.username %> </a></b> </div>
+
+<div class="col-md-6">
+	<div class="btn-group pull-right">
+		<%= link_to like_interestgroup_path(@interestgroup), method: :put, class: "btn btn-default" do %>
+		<span class="glyphicon glyphicon-heart">
+			<%= @interestgroup.get_upvotes.size %>   </span>
+		<% end %>
+		<% if user_signed_in? %>
+		<% if @interestgroup.user_id == current_user.id %>
+<%= link_to 'Delete', interestgroup_path, method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-default" %>
+<% else %>  <% end %>
+ </div></div></div> </div>
+ <% end %>

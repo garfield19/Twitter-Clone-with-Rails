@@ -13,7 +13,11 @@ Rails.application.routes.draw do
       get "networks" => "users#networks"
       end 
     end
-    resources :interestgroups
+    resources :interestgroups do
+      member do
+        put "like", to: "interestgroups#upvote"
+      end
+    end
     get '/interestgroups' => 'interestgroups#index'
 
    resources :updates do
