@@ -6,7 +6,7 @@
   			</div>
   			<div class= "panel-footer text-center">
   				<div class="row">
-  					<div class="col-sm-2"><%= image_tag current_user.avatar.url.to_s if current_user.avatar? %><img src="/avatar.jpg" height="50px" width="50px" class="rounded-img home-avatar"></div>
+  					<div class="col-sm-2"><img src="/avatar.jpg" height="50px" width="50px" class="rounded-img home-avatar"></div>
   					<div class="col-sm-10"><h4 style="text-align: center;"><%= current_user.username %></h4></div>
   					<div class="col-sm-12" style="margin-top:10px;">
   						<div class="col-sm-4">
@@ -57,28 +57,42 @@
             <% else %>
             
           <% end %>
+      <% else %>
+            
+          <% end %>
           <P>
             <H3>Suggested Hubs</H3><p>
           <% @a = User.order('RAND()').limit(5) %>
           <% @a.each do |someone| %>
-           <% if !someone.interest.blank? %>
-              <% @arr = someone.interest.split(",") %>
-              <% @intersection1 = @arr1 & @arr %>
-                <% if !@intersection1.empty? %>
-                 <a href="/user/<%= someone.username %>"><%= someone.username %> </a>(<b><%= @intersection1.size %></b> interests shared).
-                  <% else %>
-                <% end %>
-            <br>
+             <% if !someone.interest.blank? %>
+                <% @arr = someone.interest.split(",") %>
+                <% @intersection1 = @arr1 & @arr %>
+                  <% if !@intersection1.empty? %>
+                   <a href="/user/<%= someone.username %>"><%= someone.username %> </a>(<b><%= @intersection1.size %></b> interests shared).<br>
+                    <% else %>
+                    
+                  <% end %>
+            <% else %>
+
             <% end %>
-          <% end %>
-          <% else %>
+
           <% end %>
         </p>
 			</div>
 		</div>
 			<div class="panel panel-default">
   			<div class="panel-body">
-  				<p>top activities</p>
+  				<p><h3>Interest Groups</h3></p>
+          <% @a = @arr1
+          %>
+         <% @a.each do |item| %>
+         <p>
+           <%= link_to item , new_message_path , :class => 'btn btn-danger btn-block'%>
+          <% end %>
   			</div>
+        
+        <div class="panel-body">
+          <p>top activities</p>
+        </div>
   		</div>
 	</div>

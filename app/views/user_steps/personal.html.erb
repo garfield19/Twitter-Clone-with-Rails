@@ -2,13 +2,20 @@
 
 <div class="col-md-8 col-md-offset-2"> 
 	<H1> Tell us a little bit about yourself</H1>
+  <legend>Personal Details</legend>
 <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name,  class: "form-control"%>
   </div><div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name,  class: "form-control"%>
-  </div><div class="field">
+  </div>
+<div class="form_row">
+<label for="gender">Gender:</label>
+<%= radio_button :spec, :gender, "Male" %> Male
+<%= radio_button :spec, :gender, "Female" %> Female
+</div>
+  <div class="field">
     <%= f.label :about %><br />
     <%= f.text_field :about,  class: "form-control"%>
   </div><div class="field">

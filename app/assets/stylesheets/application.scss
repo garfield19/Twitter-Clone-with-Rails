@@ -280,3 +280,26 @@ overflow: hidden;
 .profile-banner{
 
 }
+
+.info-bar{
+	background-color: #ddd;
+border: 1px solid #aaa;
+font-size: 12px;
+margin-bottom: 10px;
+	background-color: #000;
+	font: #fff;
+	font-size: 16px;
+	font-weight: 200;
+	
+}
+.info-bar h4{
+	margin-top: 0px;
+padding: 6px;
+background-color: #000;
+font-size: 13px;
+color: maroon;
+font-weight:bold;
+}
+.info-bar .edit_link {
+float: right;
+}

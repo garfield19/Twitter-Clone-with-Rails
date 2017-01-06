@@ -8,6 +8,8 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 #twitter u.i
+#gem 'client_side_validations'
+#gem 'groupify'
 gem 'wicked'
 gem 'paperclip'
 gem 'carrierwave', '~> 1.0'

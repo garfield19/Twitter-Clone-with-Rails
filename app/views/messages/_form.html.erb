@@ -1,5 +1,7 @@
 <%= simple_form_for @message, :html => {:multipart => true} do |f| %>
 	<%= f.collection_select :category_id, Category.all,:id , :name, {prompt: "Choose a category"},label: "Category", class: "form-control"%>
+	<% @options = current_user.interest.split(",") %>
+	<%= select_tag "start_time", options_for_select(@options) %>
   <%= f.input :title, label: "Message Title" %>
   <%= f.input :description %>
   <%= f.input :contact, label: "Phone Number" %>

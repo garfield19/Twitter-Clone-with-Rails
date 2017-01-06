@@ -1,5 +1,42 @@
  
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Interests</th>
+      <th>Connect/Leave</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  	<% @count = 1 %>
 <% @users.each do |user| %>
-<%= user.username %><br/>
-<%= user.email %><br/>
+
+    <tr>
+      <th scope="row"><%= @count %></th>
+      <td><a href="/user/<%= user.username %>"><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td><%= user.interest %></td>
+      <td>
+        <% if current_user.id != user.id %>
+            <% if !current_user.following?(user) %>
+        <%= form_for(current_user.active_relationships.build) do |f| %>
+        <div> <%= hidden_field_tag :followed_id, user.id %> </div>
+        <%= f.submit "Connect", class: "btn btn-primary"%> 
+         <% end %>
+            <% else %>
+          <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+          html: {method: :delete}) do |f| %>
+          <%= f.submit "Leave", class: "btn"%>
+              <% end %>
+              <% end %>
+            </center>
+            </div>
+          </div>
+      <% end %>
+      </td>
+    </tr>
+    <% @count =@count + 1 %>
 <% end %>

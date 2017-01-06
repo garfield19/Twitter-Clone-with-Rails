@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_message, only: [:show, :edit, :update, :destroy]
 	def index
+		@title = "Message Board"
 		if params[:category].blank?
 		@messages = Message.all.order("created_at DESC")
 		#@messages = Message.paginate(message: params[:message], per_message: 15).order('created_at DESC')
@@ -12,6 +13,7 @@ class MessagesController < ApplicationController
 	end
 
 	def new
+		@title = "New Message"
 		@message = current_user.messages.build
 	end
 	def create
@@ -23,11 +25,13 @@ class MessagesController < ApplicationController
 		end
 	end
 	def show
+		@title = @message.title
 	end
 	def edit
-		
+		@title = "Edit Message"
 	end
 	def update
+		@title = "Edit Message"
 		if @message.update(message_params)
 			redirect_to messages_path
 		else
