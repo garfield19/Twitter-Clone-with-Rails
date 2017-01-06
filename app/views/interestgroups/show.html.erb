@@ -1,0 +1,3 @@
+<%= @interestgroup.post %>
+Submitted by <%= @interestgroup.user.username %>
+<%= link_to 'Delete', interestgroup_path, method: :delete, data: {confirm: "Are you sure"} %>

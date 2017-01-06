@@ -54,7 +54,7 @@
           %>
          <% @a.each do |item| %>
          <p>
-           <%= link_to item , new_message_path , :class => 'btn btn-danger btn-block'%>
+           <%= link_to item ,interestgroups_path(interest: item), :class => 'btn btn-danger btn-block'%>
           <% end %></p>
   			</div>
   		</div>

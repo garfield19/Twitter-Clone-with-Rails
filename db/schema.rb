@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229081020) do
+ActiveRecord::Schema.define(version: 20170106221353) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -26,6 +26,23 @@ ActiveRecord::Schema.define(version: 20161229081020) do
     t.datetime "updated_at",               null: false
     t.index ["message_id"], name: "index_comments_on_message_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "interestgroups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "post"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "interest"
+    t.string   "type"
+    t.string   "interesttype"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_interestgroups_on_user_id", using: :btree
+  end
+
+  create_table "interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "topic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

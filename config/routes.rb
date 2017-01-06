@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       get "networks" => "users#networks"
       end 
     end
+    resources :interestgroups
+    get '/interestgroups' => 'interestgroups#index'
+
    resources :updates do
     member do
       put "like" => "updates#upvote"

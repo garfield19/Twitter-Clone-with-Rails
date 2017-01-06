@@ -1,0 +1,6 @@
+<%= simple_form_for @interest, :html => {:multipart => true} do |f| %>
+	<% @options = current_user.interest.split(",") %>
+	<%= select_tag "start_time", options_for_select(@options) %>
+  <%= f.input :topic, label: "Post" %>
+  <%= f.button :submit %>
+<% end %>

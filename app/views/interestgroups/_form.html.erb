@@ -1,0 +1,8 @@
+<%= simple_form_for @interestgroup, :html => {:multipart => true} do |f| %>
+<% options = current_user.interest.split(",") %>
+<% type = ["View", "Review", "News"] %>
+<%= f.select :interest, options_for_select(options, @interestgroup.interest) ,class: "form-control"%> 
+<%= f.select :interesttype, options_for_select(type, @interestgroup.interesttype) ,class: "form-control"%> 
+  <%= f.input :post, label: "Post" %>
+  <%= f.button :submit, label: "submit" %>
+<% end %>
