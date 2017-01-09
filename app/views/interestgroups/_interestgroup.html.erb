@@ -1,0 +1,19 @@
+
+<div class="col-md-6" id="interestgroup_<%= interestgroup.id %>">
+			<div class="message">
+		<h2 class="p-title"> <%= truncate interestgroup.post, length: 70 %></h2>
+			
+			<div class="panel-footer">
+	<div class="row">
+		<div class="col-md-6"><%= link_to "Contribute", interestgroup, class: "btn btn-primary"%><b><%= @interestgroup.interesttype %></div>
+<% if user_signed_in? %>
+<div class="col-md-6">
+	<div class="btn-group pull-right">
+		<%= link_to like_interestgroup_path(interestgroup), method: :put, class: "btn btn-default" do %>
+		<span class="glyphicon glyphicon-heart">
+			<%= interestgroup.get_upvotes.size %>   </span>
+		<% end %>
+		
+ </div></div></div> </div><% end %>
+	</div>
+		</div>

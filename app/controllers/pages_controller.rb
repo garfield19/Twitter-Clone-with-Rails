@@ -10,6 +10,9 @@ include Twitter::Autolink
 
 #back end code for pages/home
   def home
+    if (current_user.interest == "")
+      redirect_to user_steps_path , :notice => "Please update your profile"
+    end
     @title = "Home"
       following_ids = "SELECT followed_id FROM relationships
       WHERE follower_id = ? "

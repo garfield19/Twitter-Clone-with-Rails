@@ -61,7 +61,20 @@ h1, h2, h3, h4, h5, h6 {
 		text-decoration: none;
 	}
 }
-
+.btn-custom1 {
+	background-color: #000;
+	color: #0a8fd5;
+	font-family: 'Muli', sans-serif; 
+	font-weight: 300;
+	border-radius: 8px;
+	padding: 10px 20px;
+	&:hover {
+		color: #383838;
+		transition: 0.5s;
+		background-color: #fff;
+		text-decoration: none;
+	}
+}
 .btn:hover {
 	transition: 0.5s;
 	color: #383838;
@@ -122,6 +135,14 @@ h1, h2, h3, h4, h5, h6 {
 
 	.message-title {
 		font-size: 1.5em;
+		font-family: 'Muli', sans-serif;
+		font-weight: 300;
+		margin-top: 0;
+		color: white;
+		margin-bottom: 25px;
+	}
+	.p-title {
+		font-size: 1.2em;
 		font-family: 'Muli', sans-serif;
 		font-weight: 300;
 		margin-top: 0;

@@ -1,13 +1,55 @@
 <div class="row">
-<div class="col-md-7">
-	<div class="panel panel-default">
-<% @interestgroups.each do |post| %>
-<%= link_to post.post,post %>
-<br>
-<% end %>
-</div>
-</div>
 <div class="col-md-4">
-	djdv
+	<%= simple_form_for @interestgroup,remote: true do |f| %>
+<% options = current_user.interest.split(",") %>
+<% type = ["View", "Review", "News"] %>
+<div class="field"> <%= f.label :Interest %>
+<%= f.select :interest, options_for_select(options, @interestgroup.interest) ,class: "form-control post_interest"%> </div> 
+<%= f.select :interesttype, options_for_select(type, @interestgroup.interesttype) ,class: "form-control post_type"%> 
+<div class="field">
+	<%= f.label :post %>
+  <%= f.text_area :post, class: "form-control post_content" %>
+ <%= submit_tag "Create",class: "btn btn-primary" %>
+ <% end %></div>
+	<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mynewpost">
+  Launch demo modal
+</button>
+ --></div>
+<div class="col-md-8">
+<div class="row" id="container_posts">
+	<%= render @interestgroups %>
+</div>
+</div>
+ </div>
+<%= simple_form_for @interestgroup,remote: true do |f| %>
+	<div class="modal fade" id="mynewpost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hiddem="true"></span>
+					<h4 class="modal-title" id="myModalLabel">Post</h4>
+				</div>
+				<div class="modal-body">
+					<div class="field">
+	
+<% options = current_user.interest.split(",") %>
+<% type = ["View", "Review", "News"] %>
+<div class="field"> <%= f.label :Interest %>
+<%= f.select :interest, options_for_select(options, @interestgroup.interest) ,class: "form-control post_interest"%> </div> 
+<%= f.select :interesttype, options_for_select(type, @interestgroup.interesttype) ,class: "form-control post_type"%> 
+<div class="field">
+	<%= f.label :post %>
+  <%= f.text_area :post, class: "form-control post_content" %>
+
+</div>
+<div class = "modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
+  <%= submit_tag "Create",class: "btn btn-primary" %>
+</div>
+</div>
+</div>
+</div>
+<% end %>
+<button type+"button" class="btn btn-primary" data-toggle="modal" data-target="mynewpost" ></button>
 </div>
 </div>

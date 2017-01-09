@@ -1,0 +1,5 @@
+$("#mynewpost").modal('hide');
+$(".post_content").val('');
+
+$("#container_posts").prepend('<%= j render @interestgroup %>');
+$("#interestgroup_<%= @interestgroup.id %>").fadein(1000);

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   devise_for :users , controllers: { confirmations: 'confirmations' }
   resources :relationships
   resources :user_steps
@@ -30,6 +32,12 @@ Rails.application.routes.draw do
       resources :comments
     end
    get '/messages' => 'messages#index'
+   get '/community' => 'community#index'
+     get 'community/index' => 'community#index'
+
+  #get 'community/browse'
+
+  #get 'community/search'
 
   root "pages#index"
   match '/users', to: 'users#index', via: 'get'

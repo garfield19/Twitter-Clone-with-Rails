@@ -18,7 +18,7 @@
       <th scope="row"><%= @count %></th>
       <td><a href="/user/<%= user.username %>"><%= user.username %></td>
       <td><%= user.email %></td>
-      <td><%= user.interest %></td>
+      <td><%= truncate user.interest, length: 40 %></td>
       <td>
         <% if current_user.id != user.id %>
             <% if !current_user.following?(user) %>

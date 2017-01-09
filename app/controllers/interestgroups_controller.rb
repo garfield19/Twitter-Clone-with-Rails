@@ -1,6 +1,7 @@
 class InterestgroupsController < ApplicationController
 	before_action :find_interestgroup, only: [:show, :destroy, :upvote]
 	before_action :authenticate_user!
+	before_filter :initialize_interestgroup, except: [:show, :upvote]
 	def index
 		@title = "Interest Group"
 		if params[:interest].blank?
@@ -24,10 +25,13 @@ class InterestgroupsController < ApplicationController
 	end
 	def create
 		@interestgroup = current_user.interestgroups.build(interestgroups_params)
+		respond_to do |format|
 		if @interestgroup.save
-			redirect_to @interestgroup
+		      format.html{redirect_to (:back) ,notice: "Post succesfully created"	}
+		      format.js
 		else
 			render "New"
+		end
 		end
 		
 	end
@@ -44,5 +48,10 @@ class InterestgroupsController < ApplicationController
 	def find_interestgroup
 		@interestgroup = Interestgroup.find(params[:id])
 	end
+	  
+
+  def initialize_interestgroup
+    @interestgroup = Interestgroup.new
+  end
 
 end
