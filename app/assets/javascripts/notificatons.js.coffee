@@ -14,7 +14,7 @@ class Notifications
 
 	handleClick: (e) =>
 		$.ajax(
-			url: "/notfications/mark_as_read"
+			url: "/notifications/mark_as_read"
 			method: "POST"
 			dataType: "JSON"
 			success: ->
@@ -24,7 +24,7 @@ class Notifications
 	handleSuccess: (data) =>
 		console.log(data)
 		items = $.map data, (notification) ->
-			"<a class='dropdown-item' href='#'>#{notification.actor} #{notification.action} #{notification.notifiable.type}</a>"
+			"<li><a class='dropdown-item' href='#'>#{notification.actor} #{notification.action} #{notification.notifiable.type}</a></li>"
 		$("[data-behavior='unread-count']").text(items.length)
 		$("[data-behavior='notification-items']").html(items)
 		console.log(items)

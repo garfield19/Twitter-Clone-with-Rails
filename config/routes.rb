@@ -11,8 +11,8 @@ Rails.application.routes.draw do
       end 
     end
   resources :notifications do
-    member do
-      post "mark_as_read" => "notifications#mark_as_read"
+    collection do
+      post :mark_as_read
     end
   end
     resources :users do
