@@ -1,10 +1,13 @@
+ <p>STEP 1: Tell us a little about yourself</p>
+<p>STEP 2: <b>Where can we find you?</b></p>
+
  <%= form_for @user, url: wizard_path do |f| %>
  <div class="col-md-8 col-md-offset-2"> <center>
  	<H1> Hi, <%= current_user.first_name %> Lets help setup your account </h1>
 </center>
  <div class="field">
     <%= f.label :hub_type %><br />
-    <%= f.text_field :hub_type, class: "form-control"%>
+    <%= f.select(:hub_type, User::HUB_LIST)%>
   </div>
 <div class="field">
     <%= f.label :cover_img %><br />

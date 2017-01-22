@@ -1,0 +1,27 @@
+<%= form_for @user, url: wizard_path do |f| %>
+ <div class="col-md-8 col-md-offset-2"> <center>
+ 	<H1> <%= current_user.first_name %>, where else can people find you? </h1>
+</center>
+<div class="field">
+    <%= f.label :Instagram %><br />
+    <%= f.text_field :ig,  class: "form-control"%>
+  </div><div class="field">
+    <%= f.label :whatsapp %><br />
+    <%= f.text_field :whatsapp,  class: "form-control"%>
+  </div>
+  <div class="field">
+    <%= f.label :twitter %><br />
+    <%= f.text_field :twitter,  class: "form-control"%>
+  </div>
+  <div class="field">
+    <%= f.label :facebook %><br />
+    <%= f.text_field :facebook,  class: "form-control"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Continue" %>
+    or <%= link_to "skip this step", next_wizard_path %>
+    </div> 
+      <% end %>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   acts_as_voter
+  acts_as_commontator
   #attr_accessor :login
   before_save do
     self.interest.gsub!(/[\[\]\"]/, "") if attribute_present?("interest")
@@ -10,6 +11,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable ,:confirmable
    has_many :updates, dependent: :destroy
+   has_many :notifiactions, foreign_key: :recepient_id
    has_many :messages
    has_many :comments
    has_many :interestgroups
@@ -28,5 +30,6 @@ def following?(other)
 	following.include?(other)
 end
 
+HUB_LIST = ["Personal", "Business"]
 
 end

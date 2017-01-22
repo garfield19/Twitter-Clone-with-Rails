@@ -30,7 +30,14 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-
+      <li class="nav-item btn-group" data-behavior = "notifications">
+        <a class="dropdown-toggle nav-link" type="button" data-behavior="notifications-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true">
+           <span class="glyphicon glyphicon-bell"></span><span data-behavior="unread-count"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1" data-behavior="notification-items">
+          <!-- <a class="dropdown-item" href="#">Acion</a> -->
+        </div>
+      </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %> <span class="caret"></span></a>
           <ul class="dropdown-menu">

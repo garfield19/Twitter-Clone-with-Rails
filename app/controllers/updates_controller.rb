@@ -5,10 +5,13 @@ class UpdatesController < ApplicationController
 	respond_to :js, :json, :html
 def upvote
 		@update.upvote_from current_user
+		Notification.create(recipient: User.find(@update.user_id),actor: current_user, action: "Liked", notifiable: @update)
 		redirect_to(:back)
+
 	end
 	def downvote
 		@update.downvote_from current_user
+		Notification.create(recipient: User.find(@update.user_id),actor: current_user, action: "Disliked", notifiable: @update)
 		redirect_to(:back)
 	end
 	def new

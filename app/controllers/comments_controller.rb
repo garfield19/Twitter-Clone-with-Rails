@@ -7,6 +7,12 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id
 
 		if @comment.save
+			#(@message.users.uniq - [current_user]).each do |user|
+			(@message.users.uniq - [current_user]).each do |user|
+			 Notification.create(recipient: user,actor: current_user, action: "posted", notifiable: @message)
+			end
+			
+			Notification.create(recipient: @message.user,actor: current_user, action: "posted", notifiable: @message)
 			redirect_to message_path(@message)
 		else
 			render 'new'

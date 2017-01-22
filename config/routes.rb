@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users , controllers: { confirmations: 'confirmations' }
   resources :relationships
   resources :user_steps
@@ -9,6 +10,11 @@ Rails.application.routes.draw do
       get :following, :followers
       end 
     end
+  resources :notifications do
+    member do
+      post "mark_as_read" => "notifications#mark_as_read"
+    end
+  end
     resources :users do
     member do
       get "connects" => "users#connects"
@@ -21,13 +27,14 @@ Rails.application.routes.draw do
       end
     end
     get '/interestgroups' => 'interestgroups#index'
-
+mount Commontator::Engine => '/commontator'
    resources :updates do
     member do
       put "like" => "updates#upvote"
       put "unlike" => "updates#downvote"
     end
   end
+  
    resources :messages do
       resources :comments
     end

@@ -9,8 +9,11 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
+ *= require commontator/application
  *
  */
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 body {
@@ -22,7 +25,6 @@ body {
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 
 
 @font-face {
@@ -96,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: #fff;
 
 	.navbar-nav > li > a {
-		color: #222;
+		color: #fff;
 	}
 
 	.navbar-link {
@@ -323,4 +325,8 @@ font-weight:bold;
 }
 .info-bar .edit_link {
 float: right;
+}
+.navbar-default {
+    background-color: #ff0000;
+    border-color: #ffffff;
 }

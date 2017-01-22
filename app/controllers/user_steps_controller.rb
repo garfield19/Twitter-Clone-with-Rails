@@ -1,7 +1,7 @@
 class UserStepsController < ApplicationController
 include Wicked::Wizard
 before_action :authenticate_user!
-steps :personal, :hub
+steps :personal, :hub, :social
 
 
 def show
@@ -11,7 +11,7 @@ end
 
 def update
 	@user = current_user
-	@user.attributes = params[:user].permit(:first_name, :last_name, :about, :birthday,  :avatar, interest:[])
+	@user.attributes = params[:user].permit(:first_name,:ig, :whatsapp, :facebook,:twitter,:last_name, :gender, :skills, :about, :hub_type, :birthday,  :avatar, interest:[])
 
 	render_wizard @user
 end
