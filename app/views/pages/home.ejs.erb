@@ -1,0 +1,2 @@
+$('#updates').append('<%= j render (@user.updates) %>');
+$('.pagination').replaceWith('<%= j will_paginate (@update_feed) %>');

@@ -3,15 +3,18 @@ class UpdatesController < ApplicationController
 	before_action :authenticate_user!, only:[:new,:upvote]
 	
 	respond_to :js, :json, :html
+	def show
+	  @update = Update.find(params[:id])
+	end
 def upvote
 		@update.upvote_from current_user
-		Notification.create(recipient: User.find(@update.user_id),actor: current_user, action: "Liked", notifiable: @update)
+		Notification.create(recipient: User.find(@update.user_id),actor: current_user, action: "Liked your update")
 		redirect_to(:back)
 
 	end
 	def downvote
 		@update.downvote_from current_user
-		Notification.create(recipient: User.find(@update.user_id),actor: current_user, action: "Disliked", notifiable: @update)
+		Notification.create(recipient: User.find(@update.user_id),actor: current_user, action: "Disliked your update")
 		redirect_to(:back)
 	end
 	def new

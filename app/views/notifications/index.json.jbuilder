@@ -4,7 +4,7 @@ json.array! @notifications do |notification|
 	json.actor notification.actor.username
 	json.action notification.action
 	json.notifiable do #notification.notifiable
-		json.type "a #{notification.notifiable.class.to_s.underscore.humanize.downcase}"
+		json.type ""
 	end
 	#json.url.message_path(notification.notifiable.message, anchor: dom_id(notification.notifiable))
 end

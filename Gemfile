@@ -31,7 +31,7 @@ gem 'coffee-rails', '~> 4.2'
 #gem 'betterlorem', '~> 0.1.2'
 #gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
-gem "will_paginate", ">=3.0.pre2"
+gem "will_paginate"
 gem 'rails_admin', '~> 1.0'
 gem "socialization"
 gem 'commontator', '~> 4.11.1'
@@ -42,7 +42,7 @@ gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'twitter-text', '~> 1.14', '>= 1.14.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-#gem 'mailboxer'
+gem 'mailboxer', github: 'mailboxer/mailboxer'
 gem 'bootstrap_form'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

@@ -34,7 +34,9 @@ mount Commontator::Engine => '/commontator'
       put "unlike" => "updates#downvote"
     end
   end
-  
+  resources :conversations do
+    resources :memos
+  end
    resources :messages do
       resources :comments
     end
