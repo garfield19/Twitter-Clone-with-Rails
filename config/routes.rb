@@ -43,6 +43,7 @@ mount Commontator::Engine => '/commontator'
    get '/messages' => 'messages#index'
    get '/community' => 'community#index'
      get 'community/index' => 'community#index'
+     get '/groups' => 'pages#groups'
 
   #get 'community/browse'
 

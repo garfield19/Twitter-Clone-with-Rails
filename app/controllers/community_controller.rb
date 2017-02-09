@@ -8,6 +8,10 @@ class CommunityController < ApplicationController
 		@community = User.paginate(:page => params[:page], per_page: 10).where("last_name like ? OR first_name like ? OR username like ?", @initial+'%',@initial+'%',@initial+'%')
 		#@users = users.collect { |user| user.id }
 	end
+	if params[:search]
+		@search = params[:search]
+		@community = User.paginate(:page => params[:page], per_page: 10).where("username LIKE ?", @search+'%')
+  	end
   end
 
   def browse

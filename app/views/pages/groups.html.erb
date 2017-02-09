@@ -1,0 +1,15 @@
+	<div class="panel-body">
+    <div class="row">
+  				<p><h3>Interest Groups</h3></p>
+          <% @a = @arr1
+          %>
+          
+         <% @a.each do |item| %>
+         <p>
+          <div class="col-md-3">
+           <%= link_to item ,interestgroups_path(interest: item), :class => 'btn btn-danger btn-block'%></div>
+          <% end %>
+        
+      </div>
+  			</div>
+        </div>

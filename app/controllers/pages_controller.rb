@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  #before_action :authenticate_user! only:[:hub]
+before_action :authenticate_user! ,only:[:hub, :home]
 require 'twitter-text'
 include Twitter::Autolink
  #back end code for pages/index
@@ -7,9 +7,13 @@ include Twitter::Autolink
   def index
 
   end
+  def groups
+     @arr1 = current_user.interest.split(",") 
+  end
 
 #back end code for pages/home
   def home
+    @messages = Message.all.order('RAND()').limit(5)
     if (current_user.interest == "")
       redirect_to user_steps_path , :notice => "Please update your profile"
     end
