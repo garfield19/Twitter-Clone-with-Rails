@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: reho_production
   username: reho
-  password: <%= ENV['REHO_DATABASE_PASSWORD'] %>
+  password: 123456789dharmie
+  
+  
