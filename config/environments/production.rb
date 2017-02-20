@@ -1,10 +1,15 @@
 Rails.application.configure do
   
-  ActionMailer::Base.smtp_settings = {
+config.action_mailer.default_url_options = { :host => 'rocky-savannah-93728.herokuapp.com' }
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = false
+config.action_mailer.default :charset => "utf-8"
+config.action_mailer.smtp_settings = {
   address: "smtp.gmail.com",
   port: 587,
-  domain: "mail.google.com",
-  authentication: :plain,
+  domain: "gmail.com",
+  authentication: "plain",
+  enable_starttls_auto: true,
   user_name: "garfield19",
   password: "123456789dharmie"
 }
