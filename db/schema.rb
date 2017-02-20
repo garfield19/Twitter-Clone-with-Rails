@@ -12,13 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20170126135040) do
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "content",    limit: 65535
     t.integer  "message_id"
     t.integer  "user_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "commontator_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "commontator_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "creator_type"
     t.integer  "creator_id"
     t.string   "editor_type"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["thread_id", "created_at"], name: "index_commontator_comments_on_thread_id_and_created_at", using: :btree
   end
 
-  create_table "commontator_subscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "commontator_subscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "subscriber_type", null: false
     t.integer  "subscriber_id",   null: false
     t.integer  "thread_id",       null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["thread_id"], name: "index_commontator_subscriptions_on_thread_id", using: :btree
   end
 
-  create_table "commontator_threads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "commontator_threads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "commontable_type"
     t.integer  "commontable_id"
     t.datetime "closed_at"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
   end
 
-  create_table "interestgroups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "interestgroups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "post"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -78,13 +78,13 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["user_id"], name: "index_interestgroups_on_user_id", using: :btree
   end
 
-  create_table "interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "topic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "mailboxer_conversation_opt_outs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "mailboxer_conversation_opt_outs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string  "unsubscriber_type"
     t.integer "unsubscriber_id"
     t.integer "conversation_id"
@@ -92,13 +92,13 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
   end
 
-  create_table "mailboxer_conversations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "mailboxer_conversations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "subject",    default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
-  create_table "mailboxer_notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "mailboxer_notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "type"
     t.text     "body",                 limit: 65535
     t.string   "subject",                            default: ""
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["type"], name: "index_mailboxer_notifications_on_type", using: :btree
   end
 
-  create_table "mailboxer_receipts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "mailboxer_receipts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "receiver_type"
     t.integer  "receiver_id"
     t.integer  "notification_id",                            null: false
@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
   end
 
-  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title"
     t.text     "description", limit: 65535
     t.string   "contact"
@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.string   "avatar"
   end
 
-  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "recipient_id"
     t.integer  "actor_id"
     t.datetime "read_at"
@@ -159,26 +159,14 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "subject_id"
-    t.string   "name"
-    t.string   "permalink"
-    t.integer  "position"
-    t.boolean  "visible",    default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["permalink"], name: "index_pages_on_permalink", using: :btree
-    t.index ["subject_id"], name: "index_pages_on_subject_id", using: :btree
-  end
-
-  create_table "posts_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "posts_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "updates_id"
     t.integer "tag_id"
     t.index ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
     t.index ["updates_id"], name: "index_posts_tags_on_updates_id", using: :btree
   end
 
-  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
     t.datetime "created_at",  null: false
@@ -188,19 +176,7 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
   end
 
-  create_table "sections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "page_id"
-    t.string   "name"
-    t.integer  "position"
-    t.boolean  "visible",                    default: false
-    t.string   "content_type"
-    t.text     "content",      limit: 65535
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.index ["page_id"], name: "index_sections_on_page_id", using: :btree
-  end
-
-  create_table "simple_hashtag_hashtaggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "simple_hashtag_hashtaggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "hashtag_id"
     t.string  "hashtaggable_type"
     t.integer "hashtaggable_id"
@@ -208,28 +184,20 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["hashtaggable_id", "hashtaggable_type"], name: "index_hashtaggings_hashtaggable_id_hashtaggable_type", using: :btree
   end
 
-  create_table "simple_hashtag_hashtags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "simple_hashtag_hashtags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["name"], name: "index_simple_hashtag_hashtags_on_name", using: :btree
   end
 
-  create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.integer  "position"
-    t.boolean  "visible",    default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "content",                 limit: 65535
     t.integer  "user_id"
     t.datetime "created_at",                                          null: false
@@ -248,10 +216,11 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["cached_weighted_average"], name: "index_updates_on_cached_weighted_average", using: :btree
     t.index ["cached_weighted_score"], name: "index_updates_on_cached_weighted_score", using: :btree
     t.index ["cached_weighted_total"], name: "index_updates_on_cached_weighted_total", using: :btree
+    t.index ["user_id", "created_at"], name: "index_updates_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_updates_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
@@ -264,7 +233,6 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.string   "usernmae"
     t.string   "username"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
@@ -293,7 +261,7 @@ ActiveRecord::Schema.define(version: 20170126135040) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
-  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "votable_type"
     t.integer  "votable_id"
     t.string   "voter_type"

@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
-group :development, :test do
+group :production do
+  gem 'pg'
+end
+group :development do
   gem 'mysql2'
- end
-gem 'pg', group: :production
+end
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'

@@ -5,7 +5,8 @@ class CreateUpdates < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
 
       t.timestamps
-      add_index :posts, [:user_id, :created_at]
     end
+      add_index :updates, [:user_id, :created_at]
+    
   end
 end
