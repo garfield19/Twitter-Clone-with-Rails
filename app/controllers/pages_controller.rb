@@ -13,7 +13,7 @@ include Twitter::Autolink
 
 #back end code for pages/home
   def home
-    @messages = Message.all.order('RAND()').limit(5)
+    @messages = Message.all.order('RANDOM()').limit(5)
     if (current_user.interest == "")
       redirect_to user_steps_path , :notice => "Please update your profile"
     end
