@@ -1,4 +1,13 @@
 Rails.application.configure do
+  
+  ActionMailer::Base.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: "mail.google.com",
+  authentication: :plain,
+  user_name: "garfield19",
+  password: "123456789dharmie"
+}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
