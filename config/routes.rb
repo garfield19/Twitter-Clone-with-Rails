@@ -44,6 +44,7 @@ mount Commontator::Engine => '/commontator'
    get '/community' => 'community#index'
      get 'community/index' => 'community#index'
      get '/groups' => 'pages#groups'
+     get '/home' => 'pages#home'
 
   #get 'community/browse'
 
