@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@conversations = current_user.mailbox.conversations
 	end
@@ -6,7 +7,10 @@ class ConversationsController < ApplicationController
 		@conversation = current_user.mailbox.conversations.find(params[:id])
 	end
 	def new
-		@recepients = User.all - [current_user]
+		follow = "SELECT followed_id FROM relationships
+     WHERE follower_id = ? "
+ 		@recepients = User.all.where("id IN(#{follow})", current_user.id)
+		#@recepients = User.all - [current_user]
 		if(User.find_by_username(params[:id]))
 			@clause = 0
 			@receivenig = User.find_by_username(params[:user])

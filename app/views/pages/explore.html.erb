@@ -1,36 +1,37 @@
 <div class = "row">
-	<div class="col-xs-3">
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<p>stats/options</p>
-			</div>
-		</div>
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<p>communities/ menus</p>
-			</div>
-		</div>
-	</div>
 	
-	<div class="col-xs-6">
+	<div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default">
 		<% for @p in @updates %>
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<p><%= @p.content %></p>
+		<div class="panel panel-default post-panel">
+  			<div class="panel-body row">
+  				<div class="col-sm-1">
+  					 avatar
+  				</div>
+  				<div class="col-sm-11">
+  					<p class ="post-title"> <span class = "post-user"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %> </a> </span>- <span class="post-creation"><%= @p.created_at.to_formatted_s(:short) %></span></p>
+
+  					 <p class ="post-content"><%= link_to @p.content, update_path(@p) %></p>
+  				</div>
+  				<div class="col-sm-12">
+  					<%= link_to like_update_path(@p), class: "like", method: :put do %> <button type="button" class="btn btn-info" aria-label="left Align">
+              <span class="glyphicon glyphicon-thumbs-up g-links" aria-hidden = "true"></span>
+               <span class="badge"><%= @p.get_upvotes.size %></span> 
+             </button>
+            <% end %>
+            <%= link_to unlike_update_path(@p), class: "like", method: :put do %> <button type="button" class="btn btn-info" aria-label="left Align">
+              <span class="glyphicon glyphicon-thumbs-down g-links" aria-hidden = "true"></span>
+               <span class="badge"><%= @p.get_downvotes.size %></span> 
+             </button>
+            <% end %>
+            <%= link_to update_path(@p), class: "like", method: :get do %>
+            <button type="button" class="btn btn-info" aria-label="left Align">
+  						 <span class="glyphicon glyphicon-share-alt" aria-hidden = "true"></span>
+               <span class="badge">reply</span>
+               </button>
+               <% end %>
+  				</div>
+				
 			</div>
 		</div>
 		<% end %>
-	</div>
-	
-	<div class="col-xs-3">
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<p>about/options</p>
-			</div>
-		</div>
-			<div class="panel panel-default">
-  			<div class="panel-body">
-  				<p>top activities</p>
-  			</div>
-  		</div>
-	</div>

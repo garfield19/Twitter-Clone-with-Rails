@@ -1,22 +1,85 @@
 <div class ="row">
 	<div class ="col-xs-12">
 				<div class="jumbotron">
+					<center>
+					<img src="/gar.jpg" class="img-circle" alt="profile pic" width="12.5%" height="12.5%"> 
 			<p> <%= @username %> </P>
-				<div class="col-sm-4">
-  								<h4 style="font-size:200%; opacity:0.7; font-weight:bold;"> <%= link_to @user1.followers.count, networks_user_path(@user1.id) %></h4>
-							<h4 style="color:black; font-size:80%;">Networks</h4>
-  						</div>
-              <div class="col-sm-4">
-                  <h4 style="font-size:200%; opacity:0.7; font-weight:bold;"> <%= link_to @user1.following.count, connects_user_path(@user1.id) %></h4>
-              <h4 style="color:black; font-size:80%;">Connects</h4>
-              </div>
+				<%= @user1.about %>
+				<p>
+				<div class="row">
+				<%= render '/components/network_button', :user => User.find_by_username(params[:id]) %></center>
 	</div>
 	
 </div></div>
+<div class="row">
+	<div class="col-md-3">
+			<div class="panel panel-default">
+			<div class="panel-heading">Networks</div><center>
+  			<div class="panel-body">
+  					<img src="/boss.png" height="50%" width="50%" ></div>
+  					<div class="panel-footer">
+  					<h1 style="font-size:100%; font-width:100%, opacity:0.7;"> <%= link_to @user1.followers.count, networks_user_path(@user1.id) %></h1>
+  				</div>
+	</div></center>
+</div>
+<div class="col-md-3">
+			<div class="panel panel-default">
+			<div class="panel-heading">Connects</div><center>
+  			<div class="panel-body">
+  					<img src="/networking.png" height="50%" width="50%" ></div>
+  					<div class="panel-footer">
+  					<h1 style="font-size:100%; font-width:100%, opacity:0.7;"> <%= link_to @user1.following.count, connects_user_path(@user1.id) %></h1>
+  				</div>
+	</div></center>
+</div>
+<div class="col-md-3">
+			<div class="panel panel-default">
+			<div class="panel-heading">Broadcasts</div><center>
+  			<div class="panel-body">
+  					<img src="/megaphone.png" height="50%" width="50%" ></div>
+  					<div class="panel-footer">
+  					<h1 style="font-size:100%; font-width:100%, opacity:0.7;"> <%= link_to @message.count, messages_path %></h1>
+  				</div>
+	</div></center>
+</div></div>
 
 <div class = "row">
-	<div class="col-xs-3">
-		<%= render '/components/network_button', :user => User.find_by_username(params[:id]) %> | <%= link_to "Memo" ,new_conversation_path(:user => @username), :class => 'btn btn-danger btn-block'%>
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">Profile</div>
+  			<div class="panel-body">
+				<h4>Basic information</h4> <%if current_user.id == @user1.id %><span class="edit_link"><%= link_to "Edit", user_steps_path %></span>
+<% else %>
+<% end %><p>
+<% if @user1.hub_type %>
+<p><span class="glyphicon glyphicon-home"> </span> &nbsp <%= @user1.hub_type %>
+<% end %>
+<% if @user1.username %>
+<p><span class="glyphicon glyphicon-user"> </span> &nbsp <%= @user1.username %>
+<% end %>
+<% if @user1.email %>
+<p><span class="glyphicon glyphicon-envelope"></span> &nbsp <%= @user1.email %>
+<% end %>
+<% if @user1.phone_no %>
+<p><span class="glyphicon glyphicon-phone"></span> &nbsp <%= @user1.phone_no %>
+<% end %>
+<% if @user1.whatsapp %>
+<p><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp <%= @user1.whatsapp %>
+<% end %>
+<% if @user1.facebook %>
+<p><i class="fa fa-facebook-official" aria-hidden="true"></i>&nbsp <%= @user1.facebook %>
+<% end %>
+<% if @user1.twitter %>
+<p><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp <%= @user1.twitter %>
+<% end %>
+<% if @user1.ig %>
+<p><i class="fa fa-instagram" aria-hidden="true"></i>&nbsp <%= @user1.ig %>
+<% end %>
+	
+
+</p></div>
+			</div>
+		
 		
 		<div class="panel panel-default">
   			<div class="panel-body">
@@ -31,25 +94,13 @@
 	</div>
 	<%= render "components/update_feed" %> 
 	</div>
-	
-	<div class="col-xs-3">
-		<div class="panel panel-default">
-  			<div class="panel-body">
-  				<div class="info-bar">
-				<h4>Basic information</h4> <%if current_user.id == @user1.id %><span class="edit_link"><%= link_to "Edit", edit_user_registration_path %></span>
-<% else %>
-<% end %></div>
-<b>Full Name:</b> <%= @user1.first_name %> <br>
-<b>Username:</b> <%= @user1.username %><br>
-<b>Email:</b> <%= @user1.email %>
-
-</p>
-			</div>
-		</div>
+	</div>
+	<div class="col-md-3">
 			<div class="panel panel-default">
+				<div class="panel-heading">Interest Groups</div>
   			<div class="panel-body">
 <% @arr2 = @user1.interest.split(",") %>
-  					<p><h3>Interest Groups</h3></p>
+  					
           <% @a = @arr2
           %>
          <% @a.each do |item| %>
@@ -58,4 +109,12 @@
           <% end %></p>
   			</div>
   		</div>
-	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">Messages</div>
+  			<div class="panel-body">
+  				<% @message.each do |message| %>
+  						<p><%= link_to (truncate message.title,length:35),message_path(message), :class => 'btn btn-default' %>
+  				<% end %>
+  			</div>
+  	</div>
+</div>

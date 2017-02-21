@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-before_action :authenticate_user! ,only:[:hub, :home]
+before_action :authenticate_user! ,only:[:hub, :home, :groups]
 require 'twitter-text'
 include Twitter::Autolink
  #back end code for pages/index
@@ -9,6 +9,9 @@ include Twitter::Autolink
   end
   def groups
      @arr1 = current_user.interest.split(",") 
+  end
+  def explore
+    @updates = Update.all
   end
 
 #back end code for pages/home
@@ -41,15 +44,14 @@ include Twitter::Autolink
 end
   	@updates = Update.all.where("user_id = ?",User.find_by_username(params[:id]))
   @newUpdate=Update.new
+  @message = Message.all.where("user_id = ?", @user1.id)
   
 end
 def show
   @update = Update.find(params[:id])
 end
 #back end code for pages/explore
-  def explore
-  	@updates = Update.all
-  end
+  
   def full_name
 [first_name, last_name].join(" ")
 end

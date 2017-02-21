@@ -1,5 +1,9 @@
-<%= @conversation.subject %>
-
+<div class="row">
+	<center><h3><div class="panel-heading"><%= @conversation.subject %></div></h3>
+	<div class="col-md-8 col-md-offset-2">
+		<%= link_to "New Conversation", new_conversation_path, :class => 'btn btn-success' %>
+		<%= link_to "Back home", home_path, :class => 'btn btn-warning' %>
+		<p><p>
 <% @conversation.receipts_for(current_user).each do |receipt| %>
 	<div>
 		<%= receipt.message.sender.name %> said:</div>
@@ -9,7 +13,7 @@
 
 <%= form_tag conversation_memos_path(@conversation), method: :post do %>
 <div>
-	<%= text_area_tag :body %>
+	<%= text_area_tag :body, nil, placeholder: "Reply" , class: "form-control"%>
 </div>
 
 <%= submit_tag %>

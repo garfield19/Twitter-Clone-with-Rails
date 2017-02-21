@@ -42,11 +42,11 @@ mount Commontator::Engine => '/commontator'
     end
    get '/messages' => 'messages#index'
    get '/community' => 'community#index'
-     get 'community/index' => 'community#index'
-     get '/groups' => 'pages#groups'
-     get '/home' => 'pages#home'
+   get 'community/index' => 'community#index'
+   get '/groups' => 'pages#groups'
+   get '/surf' => 'pages#explore'
 
-  #get 'community/browse'
+ # get 'community/browse'
 
   #get 'community/search'
 

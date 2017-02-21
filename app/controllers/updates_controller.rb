@@ -1,6 +1,6 @@
 class UpdatesController < ApplicationController
 	before_action :set_update, only:[:upvote, :downvote]
-	before_action :authenticate_user!, only:[:new,:upvote]
+	before_action :authenticate_user!, only:[:new,:upvote, :show, :downvote, :create, :new]
 	
 	respond_to :js, :json, :html
 	def show

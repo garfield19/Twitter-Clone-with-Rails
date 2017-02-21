@@ -1,6 +1,5 @@
-<p>STEP 1: <b>Tell us a little about yourself</b></p>
-<p>STEP 2: Where can we find you?</p>
-
+<div class="row">
+<div class="col-md-9 col-md-offset-2">
 <%= form_for @user,url: wizard_path, :html => {:multipart => true} do |f| %>
 
 <div class="col-md-8 col-md-offset-2"> 
@@ -12,6 +11,10 @@
   </div><div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name,  class: "form-control"%>
+  </div>
+  <div class="field">
+    <label for="gender">Phone Number:</label>
+    <%= f.text_field :phone_no,  class: "form-control"%>
   </div>
 <div class="form_row">
 <label for="gender">Gender:</label>
@@ -36,4 +39,4 @@
   	or <%= link_to "skip this step", next_wizard_path %>
   	</div> 
   		<% end %>
-  	</div>
+  	</div></div></div>

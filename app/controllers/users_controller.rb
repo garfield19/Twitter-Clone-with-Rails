@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :find_user
+	before_action :authenticate_user!
 	def index
 		# @user_id = User.find_by_username(params[:id])
 		following_ids = "SELECT followed_id FROM relationships
