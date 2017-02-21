@@ -60,7 +60,7 @@
           <% end %>
           <P>
             <H3>Suggested Hubs</H3><p>
-          <% @a = User.order('RAND()').limit(5) %>
+          <% @a = User.order('RANDOM()').limit(5) %>
           <% @a.each do |someone| %>
              <% if !someone.interest.blank? %>
                 <% @arr = someone.interest.split(",") %>
