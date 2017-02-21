@@ -2,6 +2,7 @@
 	<div class ="col-xs-12">
 				<div class="jumbotron">
 					<center>
+					<%= image_tag @user1.avatar.url(:thumb) if @user1.avatar? %>
 					<img src="/gar.jpg" class="img-circle" alt="profile pic" width="12.5%" height="12.5%"> 
 			<p> <%= @username %> </P>
 				<%= @user1.about %>
