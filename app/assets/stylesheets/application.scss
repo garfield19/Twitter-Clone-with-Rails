@@ -12,9 +12,8 @@
  *= require commontator/application
  *
  */
-@import url(http://fonts.googleapis.com/css?family=PlayfairDisplay|Muli:300,400);
-@import "font-awesome-sprockets";
-@import "font-awesome";
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 body {
@@ -27,6 +26,17 @@ body {
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+@font-face {
+font-family: 'Muli';
+src:font-url('muli.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
+
 /* General styles */
 
 body {
@@ -36,8 +46,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Muli', sans-serif;
-	font-weght: 300;	
-}btn-custom {
+	font-weight: 300;	
+}
+
+.btn-custom {
 	background-color: #fff;
 	color: #0a8fd5;
 	font-family: 'Muli', sans-serif; 
@@ -315,6 +327,6 @@ font-weight:bold;
 float: right;
 }
 .navbar-default {
-    background-color: #ff0000;
+    background-color: ##191919;
     border-color: #ffffff;
 }

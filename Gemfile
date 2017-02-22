@@ -37,7 +37,7 @@ gem 'coffee-rails', '~> 4.2'
 #gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem "will_paginate"
-gem 'rails_admin', '~> 1.0'
+#gem 'rails_admin', '~> 1.0'
 gem "socialization"
 gem 'commontator', '~> 4.11.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
