@@ -1,18 +1,19 @@
 Rails.application.configure do
   
-config.action_mailer.default_url_options = { :host => 'stormy-wildwood-29407.herokuapp.com' }
-config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.default_url_options = {:host => 'http://rocky-savannah-93728.herokuapp.com' }
+config.action_mailer.perform_deliveries = true # ex. localhost:3000
+config.action_mailer.raise_delivery_errors = true # to raise error if smtp has error on setup
 config.action_mailer.default :charset => "utf-8"
-config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
-  port: 587,
-  domain: "gmail.com",
-  authentication: "plain",
-  enable_starttls_auto: true,
-  user_name: "dharmie19",
-  password: "123456789dharmie"
-}
+       config.action_mailer.smtp_settings = {
+       :address              => "smtp.gmail.com",
+       :domain              =>"mail.google.com",
+       :user_name            => "dharmie19@gmail.com",
+       :password             => '123456789dharmie',
+       :authentication       => "plain",
+       :port                 => 587,
+       :enable_starttls_auto => true
+       }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
