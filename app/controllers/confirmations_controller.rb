@@ -3,6 +3,6 @@ class ConfirmationsController < Devise::ConfirmationsController
   def after_confirmation_path_for(resource_name, resource)
     #render 'devise/registrations/new_user_details'
 	#render 'devise/shared/links' 
-	user_steps_path(resource)
+	user_steps_path
   end
 end
