@@ -99,7 +99,7 @@ Join them; it takes less than a minute:</h2>
 </div>
 <div class="col-sm-12">
 <p class= "footer-links"> &copy; REHO 2016</p> </div>
-<% elsif current_user.sign_in_count <= 1 %>
+<% elsif current_user.first_name == "" %>
   <script type="text/javascript">document.location ="/user_steps/"</script> 
  <% else %>
 <script type="text/javascript">document.location ="/home"</script>
