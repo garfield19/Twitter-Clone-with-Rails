@@ -36,7 +36,7 @@ def upvote
 end
 private
 def update_params
-	params.require(:update).permit(:user_id, :content)
+	params.require(:update).permit(:user_id, :content, :image)
 
 	end
 	def set_update
