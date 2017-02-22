@@ -1,6 +1,6 @@
 Rails.application.configure do
   
-config.action_mailer.default_url_options = { :host => 'rocky-savannah-93728.herokuapp.com' }
+config.action_mailer.default_url_options = { :host => 'stormy-wildwood-29407.herokuapp.com' }
 config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.default :charset => "utf-8"
@@ -10,7 +10,7 @@ config.action_mailer.smtp_settings = {
   domain: "gmail.com",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: "garfield19",
+  user_name: "dharmie19",
   password: "123456789dharmie"
 }
   # Settings specified here will take precedence over those in config/application.rb.
