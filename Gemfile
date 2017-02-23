@@ -39,6 +39,7 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem "will_paginate"
 #gem 'rails_admin', '~> 1.0'
 gem 'font-awesome-sass', '~> 4.4.0'
+gem 'cloudinary'
 gem "socialization"
 gem 'commontator', '~> 4.11.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
