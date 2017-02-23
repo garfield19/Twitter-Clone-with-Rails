@@ -46,7 +46,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
   			<div class="panel-body">
-<% if User.last.interest %>
+<% if current_user.interest %>
           <% @arr1 = current_user.interest.split(",") %>
           <% @arr2 = User.last.interest.split(",") if User.last.interest.blank? %>
 				<p> <% @intersection = @arr1 & @arr2 %>
