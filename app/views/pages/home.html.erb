@@ -46,7 +46,18 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
   			<div class="panel-body">
-
+<% if current_user.interest %>
+          <% @arr1 = current_user.interest.split(",") %>
+          <% @arr2 = User.last.interest.split(",") if User.last.interest.blank? %>
+				<p> <% @intersection = @arr1 & @arr2 %>
+          <% if !@intersection.blank? %>
+            You share <b><%= @intersection.size %></b> interests with <a href="/user/<%= User.last.username %>"><%= User.last.username %> </a>. which are <%= @intersection * "," %>
+            <% else %>
+            
+          <% end %>
+      <% else %>
+            
+          <% end %>
           <P>
             <H3>Suggested Hubs</H3><p>
           <% @a = User.order('RANDOM()').limit(5) %>
@@ -54,7 +65,7 @@
              <% if !someone.interest.blank? %>
                 <% @arr = someone.interest.split(",") %>
                 <% @intersection1 = @arr1 & @arr %>
-                  <% if !@intersection1.empty? %>
+                  <% if !@intersection1.blank? %>
                    <a href="/user/<%= someone.username %>"><%= someone.username %> </a>(<b><%= @intersection1.size %></b> interests shared).<br>
                     <% else %>
                     
