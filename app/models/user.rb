@@ -6,7 +6,6 @@ class User < ApplicationRecord
   before_save do
     self.interest.gsub!(/[\[\]\"]/, "") if attribute_present?("interest")
   end
-  attr_accessible :avatar
   has_attached_file :avatar, styles: {
       :thumb => "50x50#",
       :small  => "100x100>"},
