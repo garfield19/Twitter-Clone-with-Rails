@@ -10,7 +10,7 @@
   				</div>
   				<div class="col-sm-11">
   					<p class ="post-title"> <span class = "post-user"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %> </a> </span>- <span class="post-creation"><%= @p.created_at.to_formatted_s(:short) %></span></p>
-                        <%= image_tag @p.image.url(:medium) if @p.image? %>
+                      <center><div class="col-sm-offset-2"></div> <%= image_tag @p.image.url(:medium) if @p.image? %></center> </div>
   					 <p class ="post-content"><%= link_to @p.content, update_path(@p) %></p>
   				</div>
   				<div class="col-sm-12">
