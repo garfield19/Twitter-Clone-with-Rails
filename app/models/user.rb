@@ -6,7 +6,13 @@ class User < ApplicationRecord
   before_save do
     self.interest.gsub!(/[\[\]\"]/, "") if attribute_present?("interest")
   end
-  mount_uploader :avatar, AvatarUploader
+  has_attached_file :avatar, styles: {
+      :thumb => "50x50#",
+      :small  => "100x100>"},
+  :storage => :cloudinary,
+  :cloudinary_credentials => Rails.root.join("config/cloudinary.yml"),
+  :path => ':id/:style/:filename'
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, 

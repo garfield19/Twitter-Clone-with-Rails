@@ -2,7 +2,7 @@
 	<div class ="col-xs-12">
 				<div class="jumbotron">
 					<center>
-					<%= image_tag @user1.avatar.url(:pic),  :class => 'img-circle' if @user1.avatar? %>
+					<%= image_tag @user1.avatar.url(:small),  :class => 'img-circle' if @user1.avatar? %>
 			<p> <%= @username %> </P>
 				<%= @user1.about %>
 				<p>

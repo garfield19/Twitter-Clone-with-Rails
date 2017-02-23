@@ -11,7 +11,7 @@ include Twitter::Autolink
   validates :content, presence: true
   default_scope -> {order(created_at: :desc)}
   
-  has_attached_file :image, styles: { medium: "300x300>" },
+  has_attached_file :image, styles: { medium: "350x350>" },
   :storage => :cloudinary,
   :cloudinary_credentials => Rails.root.join("config/cloudinary.yml"),
   :path => ':id/:style/:filename'
