@@ -17,6 +17,7 @@ gem 'rails_12factor', group: :production
 #gem 'groupify'
 gem 'wicked'
 gem 'paperclip'
+gem 'paperclip-cloudinary'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'acts_as_votable'
