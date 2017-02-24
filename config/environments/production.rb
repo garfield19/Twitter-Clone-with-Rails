@@ -1,7 +1,7 @@
 Rails.application.configure do
   
 config.action_mailer.delivery_method = :smtp
-config.action_mailer.default_url_options = {:host => 'rocky-savannah-93728.herokuapp.com' }
+config.action_mailer.default_url_options = {:host => 'https://rocky-savannah-93728.herokuapp.com' }
 config.action_mailer.perform_deliveries = true # ex. localhost:3000
 config.action_mailer.raise_delivery_errors = true # to raise error if smtp has error on setup
 config.action_mailer.default :charset => "utf-8"
