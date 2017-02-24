@@ -34,13 +34,15 @@ include Twitter::Autolink
   end
 #back end code for pages/hub
   def hub
-  	if ( User.find_by_username(params[:id]).present? )
+  	if User.find_by_username(params[:id])
   	@username = params[:id]
     @title = "#{@username}'s Hub "
     @user1 = User.find_by_username(params[:id])
-  else
+  end
+  if !User.find_by_username(params[:id]).present?
   	redirect_to home_path, :notice => "User not found"
-end
+  	end
+
   	@updates = Update.all.where("user_id = ?",User.find_by_username(params[:id]))
   @newUpdate=Update.new
   @message = Message.all.where("user_id = ?", @user1.id)
