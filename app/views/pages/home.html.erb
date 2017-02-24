@@ -83,7 +83,7 @@
   			<div class="panel-body">
   	
           <% @a = @arr1 %>
-         <% @a.each do |item| if @a %>
+         <% @a.each do |item| %>
          <p>
            <%= link_to item ,interestgroups_path(interest: item), :class => 'btn btn-danger btn-block'%>
           <% end %>
