@@ -6,7 +6,7 @@
   			</div>
   			<div class= "panel-footer text-center">
   				<div class="row">
-  					<div class="col-sm-2"><img src="/avatar.jpg" height="50px" width="50px" class="rounded-img home-avatar"></div>
+  						<div class="col-sm-2">	<%= image_tag current_user.avatar.url(:thumb), :class => 'img-circle' if  current_user.avatar? %></div>
   					<div class="col-sm-10"><h4 style="text-align: center;"><%= current_user.username %></h4></div>
   					<div class="col-sm-12" style="margin-top:10px;">
   						<div class="col-xs-4">
@@ -48,7 +48,7 @@
   			<div class="panel-body">
 <% if current_user.interest %>
           <% @arr1 = current_user.interest.split(",") %>
-          <% @arr2 = User.last.interest.split(",") if !User.last.interest.blank? %>
+          <% @arr2 = User.last.interest.split(",") if User.last.interest.present? %>
 				<p> <% @intersection = @arr1 & @arr2 %>
           <% if !@intersection.blank? %>
             You share <b><%= @intersection.size %></b> interests with <a href="/user/<%= User.last.username %>"><%= User.last.username %> </a>. which are <%= @intersection * "," %>
@@ -62,7 +62,7 @@
             <H3>Suggested Hubs</H3><p>
           <% @a = User.order('RANDOM()').limit(5) %>
           <% @a.each do |someone| %>
-             <% if !someone.interest.blank? %>
+             <% if someone.interest.present? %>
                 <% @arr = someone.interest.split(",") %>
                 <% @intersection1 = @arr1 & @arr %>
                   <% if !@intersection1.blank? %>
