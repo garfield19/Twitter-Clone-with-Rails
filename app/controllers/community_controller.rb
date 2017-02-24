@@ -11,7 +11,7 @@ class CommunityController < ApplicationController
 	end
 	if params[:search]
 		@search = params[:search]
-		@community = User.paginate(:page => params[:page], per_page: 10).where("username LIKE ?", "%#{@search}%")
+		@community = User.paginate(:page => params[:page], per_page: 10).where("username ILIKE ?", "%#{@search}%")
 		 
   	end
   end
