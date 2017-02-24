@@ -6,8 +6,8 @@
   				<div class="col-md-11">
 					  <%= form_for(@newUpdate) do |f| %>
 					<div class="field" style="margin-left: 10px;">
-					    <%= f.text_field :content, autofocus: true, class: "form-control" %>
-					    <%= f.file_field :image, class: "form-control" %>
+					    <%= f.text_field :content, autofocus: true, class: "form-control", :required => true %>
+					    <%= f.file_field :image %>
 					     <span type="button" class="btn btn-submit" style="float: right; margin-top: 3px;"><%= f.submit "Update", class: "btn btn-primary" %></span>
 					  </div>
 					
