@@ -11,7 +11,8 @@ class CommunityController < ApplicationController
 	end
 	if params[:search]
 		@search = params[:search]
-		@community = User.paginate(:page => params[:page], per_page: 10).WHERE USERNAME::text LIKE '%<%= @search %>%'
+		@community = User.paginate(:page => params[:page], per_page: 10).WHERE (username ILIKE '%<%= @search
+		 %>%')
   	end
   end
 
