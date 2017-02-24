@@ -81,15 +81,13 @@
 			<div class="panel panel-default">
         <div class="panel-heading">Interest Groups</div>
   			<div class="panel-body">
-  			    <% if current_user.interest %>
-          <% @a = @arr1
-          %>
-         <% @a.each do |item| %>
+  	
+          <% @a = @arr1 %>
+         <% @a.each do |item| if @a %>
          <p>
            <%= link_to item ,interestgroups_path(interest: item), :class => 'btn btn-danger btn-block'%>
           <% end %>
-          <% else %>
-          <% end %>
+         
   			</div>
         </div>
         <div class="panel-body">
