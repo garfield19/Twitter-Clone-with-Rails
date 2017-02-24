@@ -47,7 +47,7 @@
 		<div class="panel panel-default">
   			<div class="panel-body">
   			    <% @arr1 = current_user.interest.split(",") %>
-<% if current_user.interest && User.last.interest %>
+<% if current_user.interest.present? && User.last.interest.present? %>
           <% @arr1 = current_user.interest.split(",") %>
           <% @arr2 = User.last.interest.split(",")%>
 				<p> <% @intersection = @arr1 & @arr2 %>
