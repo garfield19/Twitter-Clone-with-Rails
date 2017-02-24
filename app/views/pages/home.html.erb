@@ -48,7 +48,7 @@
   			<div class="panel-body">
 <% if current_user.interest %>
           <% @arr1 = current_user.interest.split(",") %>
-          <% @arr2 = User.last.interest.split(",") if User.last.interest.present? %>
+          <% @arr2 = User.last.interest.split(",") if !User.last.interest.blank? %>
 				<p> <% @intersection = @arr1 & @arr2 %>
           <% if !@intersection.blank? %>
             You share <b><%= @intersection.size %></b> interests with <a href="/user/<%= User.last.username %>"><%= User.last.username %> </a>. which are <%= @intersection * "," %>
