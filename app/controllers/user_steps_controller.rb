@@ -19,6 +19,6 @@ end
 private
 
 def finish_wizard_path
-	home_path(current_user)
+	home_path
 end
 end
