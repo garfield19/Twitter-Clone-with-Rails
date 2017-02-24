@@ -34,10 +34,9 @@ include Twitter::Autolink
   end
 #back end code for pages/hub
   def hub
-  	if(User.find_by_username(params[:id]))
+  	if ( User.find_by_username(params[:id]).present? )
   	@username = params[:id]
     @title = "#{@username}'s Hub "
-    #@birthday = User.find_()
     @user1 = User.find_by_username(params[:id])
   else
   	redirect_to home_path, :notice => "User not found"
