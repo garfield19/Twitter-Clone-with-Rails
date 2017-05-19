@@ -115,13 +115,13 @@ margin-top:5%;
 <div class="col-xs-6">
   <div class="panel panel-default">
   <div class="panel-heading">New User</div>
-  <div class="panel-body">Sign Up</div>
+  <div class="panel-body"><%= link_to('Create Hub', new_user_registration_path) %></div>
 </div>
 </div>
 <div class="col-xs-6">
   <div class="panel panel-default">
 <div class="panel-heading">Existing User</div>
-  <div class="panel-body">Login In</div>
+  <div class="panel-body"><%= link_to('Sign In', new_user_session_path) %></div>
 </div>
 </div>
 
@@ -130,7 +130,7 @@ margin-top:5%;
 </div>
 </div>
 <div class="col-sm-12">
-<p class= "footer-links"> &copy; REHO 2016</p> </div>
+<p class= "footer-links"> &copy; REHO 2017</p> </div>
 <% elsif !current_user.interest.present? %>
   <script type="text/javascript">document.location ="/user_steps/"</script> 
  <% else %>
