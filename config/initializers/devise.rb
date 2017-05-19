@@ -273,5 +273,6 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   #config.allow_unconfirmed_access_for = 2.days
   #config.authentication_keys = [ :login ]
+  config.allow_unconfirmed_access_for = 365.days
   config.secret_key = '767550932eb386cb58f30a0ce1d56b7089efc8c4b8ef3252f653b654404d89aba008e463310facf318575199c9f66bc72095cdddb79ddf90b4da8bbb83383540'
 end
