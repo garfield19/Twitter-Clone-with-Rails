@@ -18,15 +18,16 @@
     <%= f.text_field :last_name,  class: "form-control input-lg", placeholder: "Last Name", tabindex:"1"%>
     </div>
   </div>
-  <div class="field">
+  <div class="form_group">
     <label for="gender">Phone Number:</label>
-    <%= f.text_field :phone_no,  class: "form-control"%>
+    <%= f.text_field :phone_no, class: "form-control input-lg", placeholder: "Mobile Number", tabindex:"1"%>
   </div>
-<div class="form_row">
+<div class="form-row text-center input-lg">
 <label for="gender">Gender:</label>
 <%= radio_button :user, :gender, "Male" %> Male
 <%= radio_button :user, :gender, "Female" %> Female
 </div>
+
   <div class="field">
     <%= f.label :about %><br />
     <%= f.text_field :about,  class: "form-control"%>
