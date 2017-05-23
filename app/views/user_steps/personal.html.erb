@@ -9,7 +9,8 @@
   <legend>Personal Details</legend>
 <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name,  class: "form-control"%>
+    <%= f.text_field :first_name,  class: "form-control input-lg", placeholder: "First Name", tabindex:"1" %>
+      <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
   </div><div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name,  class: "form-control"%>
