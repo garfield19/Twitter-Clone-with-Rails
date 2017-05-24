@@ -3,7 +3,7 @@
  <h2>Hi, Set Up Your Account<small>It takes less than a minute.</small></h2>
 			<hr class="colorgraph">
 <%= form_for @user,url: wizard_path, :html => {:multipart => true} do |f| %>
-
+	<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
     <%= f.label :first_name %><br />
