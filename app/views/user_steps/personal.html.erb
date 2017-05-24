@@ -53,6 +53,10 @@
 				<div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
 				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Sign In</a></div>
 			</div>
+			<div class="actions">
+  	<%= f.submit "Continue" %>
+  	or <%= link_to "skip this step", next_wizard_path %>
+  	</div>
 		</form>
   </div>
   <div class="actions">
