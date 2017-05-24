@@ -1,7 +1,7 @@
 class UserStepsController < ApplicationController
 include Wicked::Wizard
 before_action :authenticate_user!
-steps :personal, :hub, :social
+steps :personal, :hub
 
 
 def show
