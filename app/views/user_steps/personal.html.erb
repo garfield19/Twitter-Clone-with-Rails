@@ -30,10 +30,11 @@
 <%= radio_button :user, :gender, "Female" %> Female
 </div>
 
-  <div class="field">
+  <div class="form_group">
     <%= f.label :about %><br />
-    <%= f.text_field :about,  class: "form-control"%>
-  </div><div class="field">
+    <%= f.text_area :about, cols: 40, rows: 15,  class: "form-control"%>
+  </div>
+  <div class="field">
     <%= f.file_field :avatar %>
   </div><div class="field">
     <%= f.label :skills %><br />
