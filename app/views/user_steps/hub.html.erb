@@ -4,11 +4,7 @@
      <h2>Select Topics <small>You Find Interesting</small></h2>
 			<hr class="colorgraph">
  <%= form_for @user, url: wizard_path do |f| %>
- <div class="col-md-8 col-md-offset-2">
- <div class="field">
-    <%= f.label :hub_type %><br />
-    <%= f.select(:hub_type, User::HUB_LIST)%>
-  </div>
+
 
    <ul>
         <li><%= check_box_tag 'user[interest][]', 'Politics', checked('Politics'), id: 'interest_politics' %>
