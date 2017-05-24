@@ -32,6 +32,16 @@
     <%= f.label :cover_img %><br />
     <%= f.text_field :cover_img, class: "form-control"%>
   </div>
+  <input type="checkbox" name="user[interest][]" id="interest_music" value="Music"  autocomplete="off" />
+            <div class="[ btn-group ]">
+                <label for="user_interest_music" class="[ btn btn-default ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="user_interest_music" class="[ btn btn-default active ]">
+                    Default Checkbox
+                </label>
+            </div>
   
   <div class="field">
     <%= f.label 'interest_music', 'Music'%>
