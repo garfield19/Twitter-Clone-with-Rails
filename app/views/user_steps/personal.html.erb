@@ -7,8 +7,9 @@
 <div class="col-md-8 col-md-offset-2"> 
 	<H1> Tell us a little bit about yourself</H1>
   <legend>Personal Details</legend>
-<div class="form-group">
-	<div class="col-xs-12 col-sm-6 col-md-6">
+<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name,  class: "form-control input-lg", placeholder: "First Name", tabindex:"1" %></div>
   </div>
@@ -18,13 +19,12 @@
     <%= f.text_field :last_name,  class: "form-control input-lg", placeholder: "Last Name", tabindex:"1"%>
     </div>
   </div>
+  </div>
   <div class="form_group">
-  	<div class="col-xs-12 col-sm-6 col-md-6">
     <label for="gender">Phone Number:</label>
     <%= f.text_field :phone_no, class: "form-control input-lg", placeholder: "Mobile Number", tabindex:"1"%>
   </div>
-  </div>
-<div class="form-row text-center input-lg">
+<div class="form-row text-center input-md">
 <label for="gender">Gender:</label>
 <%= radio_button :user, :gender, "Male" %> Male
 <%= radio_button :user, :gender, "Female" %> Female
