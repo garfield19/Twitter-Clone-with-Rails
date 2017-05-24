@@ -27,7 +27,7 @@
     });
     
 $(document).ready(function() {
-    var text_max = 100;
+    var text_max = 150;
     $('#textarea_feedback').html(text_max + ' characters remaining');
 
     $('#user_about').keyup(function() {
