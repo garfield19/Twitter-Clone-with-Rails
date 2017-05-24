@@ -37,36 +37,29 @@
             <label for="interest_politics"><img src="https://www.w3schools.com/css/img_fjords.jpg" /></label>
             <center>Politics</center>
         </li>
-    <li><input type="checkbox" id="cb2" />
-        <label for="cb2"><img src="https://www.w3schools.com/css/img_fjords.jpg" /></label>
-    </li>
-    <li><input type="checkbox" id="cb3" />
-        <label for="cb3"><img src="https://www.w3schools.com/css/img_fjords.jpg" /></label>
-    </li>
-    <li><input type="checkbox" id="cb4" />
-        <label for="cb4"><img src="https://www.w3schools.com/css/img_fjords.jpg" /></label>
-    </li>
+        <li> <%= check_box_tag 'user[interest][]', 'Education', checked('Education'), id: 'interest_education' %>
+            <label for="interest_education"><img src="https://www.w3schools.com/css/img_fjords.jpg" /></label>
+            <center>Education</center>
+        </li>
+        <li> <%= check_box_tag 'user[interest][]', 'Sports', checked('Sports') ,id: 'interest_sports' %>
+            <label for="interest_sports"><img src="https://www.w3schools.com/css/img_fjords.jpg" /></label>
+            <center>Sports</center>
+        </li>
+        <li><%= check_box_tag 'user[interest][]', 'Fashion', checked('Fashion') ,id: 'interest_fashion' %>
+            <label for="interest_fashion"><img src="https://www.w3schools.com/css/img_fjords.jpg" /></label>
+            <center>Fashion</center>
+        </li>
+        <li> <%= check_box_tag 'user[interest][]', 'Music', checked('Music'), id: 'interest_music' %>
+            <label for="interest_music"><img src="https://www.w3schools.com/css/img_fjords.jpg" /></label>
+            <center>Music</center>
+        </li>
+        <li> <%= check_box_tag 'user[interest][]', 'Technology', checked('Technology'), id: 'interest_technology' %>
+            <label for="interest_technology"><img src="https://www.w3schools.com/css/img_fjords.jpg" /></label>
+            <center>Technology</center>
+        </li>
+    
     </ul>
-  
-  <div class="field">
-    <%= f.label 'interest_music', 'Music'%>
-    <%= check_box_tag 'user[interest][]', 'Music', checked('Music'), id: 'interest_music' %>
     
-    
-    <%= f.label 'interest_fashion', 'Fashion'%>
-    <%= check_box_tag 'user[interest][]', 'Fashion', checked('Fashion') ,id: 'interest_fashion' %>
-    
-    <%= f.label 'interest_sports', 'Sports'%>
-    <%= check_box_tag 'user[interest][]', 'Sports', checked('Sports') ,id: 'interest_sports' %>
-    
-    <%= f.label 'interest_education', 'Education'%>
-    <%= check_box_tag 'user[interest][]', 'Education', checked('Education'), id: 'interest_education' %>
-    
-    <%= f.label 'interest_technology', 'Technology'%>
-    <%= check_box_tag 'user[interest][]', 'Technology', checked('Technology'), id: 'interest_technology' %>
-
-  </div>
- 
  <div class="actions">
   	<%= f.submit "Continue" %>
   	or <%= link_to "skip this step", next_wizard_path %>
