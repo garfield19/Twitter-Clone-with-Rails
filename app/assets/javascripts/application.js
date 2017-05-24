@@ -34,6 +34,7 @@ $('#user_about').keyup(function() {
   var text_remaining = text_max - text_length;
   
   $('#count_message').html(text_remaining + ' remaining');
+  console.log(text_remaining);
 });
 
     
