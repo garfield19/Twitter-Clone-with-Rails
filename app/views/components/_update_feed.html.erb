@@ -17,10 +17,10 @@
   				</div>
   				<div class="row">
   				<div class="col-xs-12">
-  					<%= link_to like_update_path(@p), class: "like", method: :put do %> <button type="button" class="btn btn-info" aria-label="left Align">
+  					<%= link_to like_update_path(@p), class: "like", method: :put do %>
               <span class="glyphicon glyphicon-thumbs-up g-links" aria-hidden = "true"></span>
-              <%= @p.get_upvotes.size %>
-             </button>
+               <span class="badge"><%= @p.get_upvotes.size %></span> 
+             
             <% end %>
             <%= link_to unlike_update_path(@p), class: "like", method: :put do %> <button type="button" class="btn btn-info" aria-label="left Align">
               <span class="glyphicon glyphicon-thumbs-down g-links" aria-hidden = "true"></span>
