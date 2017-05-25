@@ -1,5 +1,6 @@
 <div class="col-md-6 col-md-offset-3">
 <center><h2>New Conversation</h2></center>
+<hr class="colorgraph">
 <%= form_tag conversations_path, method: :post do %>
 	<div>
 		<%= select_tag :user_id, options_from_collection_for_select(@recepients, :id, :name), prompt: "Choose a recepient", class: "form-control input-lg" %>
@@ -11,6 +12,8 @@
 		<%= text_area_tag :body, nil,  rows: 4, placeholder: "Send Message",class: "form-control input-lg"%>
 	</div>
 
-	<%= submit_tag %>
+	<div class="col-xs-12 col-md-6"><%= submit_tag "Send", class: "btn btn-primary btn-block btn-lg", tabindex: "7" %></div>
+	<hr class="colorgraph">
 <% end %>
 </div>
+
