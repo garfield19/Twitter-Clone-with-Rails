@@ -2,13 +2,13 @@
 <center><h2>New Conversation</h2></center>
 <%= form_tag conversations_path, method: :post do %>
 	<div>
-		<%= select_tag :user_id, options_from_collection_for_select(@recepients, :id, :name), prompt: "Choose a recepient", class: "form-control" %>
+		<%= select_tag :user_id, options_from_collection_for_select(@recepients, :id, :name), prompt: "Choose a recepient", class: "form-control input-lg" %>
 	</div>
 	<div>
-		<%= text_field_tag :subject, nil, placeholder: "Subject" , class: "form-control"%>
+		<%= text_field_tag :subject, nil, placeholder: "Message Title" , class: "form-control input-lg"%>
 	</div>
-	<div>
-		<%= text_area_tag :body, nil, placeholder: "Send a memo" , class: "form-control"%>
+	<div class="form_group">
+		<%= text_area_tag :body, nil,  rows: 4, placeholder: "Send Message",class: "form-control input-lg"%>
 	</div>
 
 	<%= submit_tag %>
