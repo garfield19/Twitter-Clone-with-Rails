@@ -19,7 +19,7 @@
   				<div class="col-xs-12">
   					<%= link_to like_update_path(@p), class: "like", method: :put do %> <button type="button" class="btn btn-info" aria-label="left Align">
               <span class="glyphicon glyphicon-thumbs-up g-links" aria-hidden = "true"></span>
-               <span class="badge"><%= @p.get_upvotes.size %></span> 
+              <%= @p.get_upvotes.size %>
              </button>
             <% end %>
             <%= link_to unlike_update_path(@p), class: "like", method: :put do %> <button type="button" class="btn btn-info" aria-label="left Align">
