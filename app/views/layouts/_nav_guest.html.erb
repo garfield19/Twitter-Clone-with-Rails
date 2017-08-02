@@ -15,7 +15,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/">RehoHub <span class="sr-only">(current)</span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
        
@@ -31,15 +31,13 @@
     background-size: cover; 
     font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
     background-image : url("background.jpg"); 
+    background-color : transparent;
     
 }
         </style>
-         <li><%= link_to "Sign in", new_user_session_path %></li>
-    <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-         
-        </li>
+         <li><span class="glyphicon glyphicon-log-in"></span><%= link_to "Sign in", new_user_session_path %></li>
+    <li><span class="glyphicon glyphicon-user"></span><%= link_to "Sign up", new_user_registration_path %></li>
+       
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
