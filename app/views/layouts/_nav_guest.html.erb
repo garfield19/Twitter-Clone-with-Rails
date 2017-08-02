@@ -19,10 +19,12 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
        
+       
       <% @backgrounds = ["0.jpg", "1.jpg" , "2.jpg", "3.jpg", "4.jpg"] %>
         <style type="text/css">
        body{
   background-color: #da251c;
+  background-color: #ffffff;
     -webkit-background-size : cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -32,6 +34,8 @@
     
 }
         </style>
+         <li><%= link_to "Sign in", new_user_session_path %></li>
+    <li><%= link_to "Sign up", new_user_registration_path %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu">
