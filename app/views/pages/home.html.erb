@@ -18,7 +18,7 @@
   				<div class="row">
   				
   				
-                      <div class="col-sm-offset-2"> <%= image_tag @p.image.url, :width=>300, :height=>100, :crop=>"scale" if @p.image? %> 
+                      <div class="col-sm-offset-2"> <%= image_tag @p.image.url, :width=>0.5, :crop=>"scale" if @p.image? %> 
                           <p class ="post-content"><%= link_to @p.content, update_path(@p) %></p>
                       </div>
                       <div class="row">
