@@ -11,15 +11,11 @@
                 <center>
 	
   			    <div class"row">
-  				
-  				    
   					 	<%= image_tag User.find(@p.user_id).avatar.url(:thumb), :class => 'img-circle' if  User.find(@p.user_id).avatar? %>
-  					 		<p class ="post-title"> <span class = "post-user"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %> </a> </span>- <span class="post-creation"><%= @p.created_at.to_formatted_s(:short) %></span></p>
+  					<br class ="post-title"> <span class = "post-user"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %> </a> </span>- <span class="post-creation"><%= @p.created_at.to_formatted_s(:short) %></span></br>
   				<div class="row">
-  				
-  				
-                      <div class="col-sm-offset-2"> <%= image_tag @p.image.url, :width=>50, :crop=>"scale" if @p.image? %> 
-                          <p class ="post-content"><%= link_to @p.content, update_path(@p) %></p>
+  		                 <%= image_tag @p.image.url, :width=>250, :crop=>"scale" if @p.image? %> 
+                          <br class ="post-content"><%= link_to @p.content, update_path(@p) %></br>
                       </div>
                       <div class="row">
   				    <div class="progress">
