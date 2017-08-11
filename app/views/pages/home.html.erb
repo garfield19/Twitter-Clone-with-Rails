@@ -81,7 +81,24 @@
   				</div>
   			
                 
-                Basic panel example
+                Have you met?
+                 <H3>Suggested Hubs</H3><p>
+          <% @a = User.order('RANDOM()').limit(5) %>
+          <% @a.each do |someone| %>
+             <% if someone.interest.present? %>
+                <% @arr = someone.interest.split(",") %>
+                <% @intersection1 = @arr1 & @arr %>
+                  <% if !@intersection1.blank? %>
+                   <a href="/user/<%= someone.username %>"><%= image_tag someone.avatar.url(:thumb), :class => 'img-circle' if  someone.avatar? %><%= someone.username %> </a>(<b><%= @intersection1.size %></b> interests shared).<br>
+                    <% else %>
+                    
+                  <% end %>
+            <% else %>
+
+            <% end %>
+
+          <% end %>
+                
             </div>
              <div class="panel-footer"><div class="btn btn-primary btn-xs">Connect With others</div></div>
         </div>
