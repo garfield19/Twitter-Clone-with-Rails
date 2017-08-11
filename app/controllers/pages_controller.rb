@@ -27,7 +27,7 @@ include Twitter::Autolink
     @updates = Update.all.where("user_id IN(#{following_ids}) OR
       user_id = ?",current_user.id,current_user.id).paginate(page: params[:page], per_page: 6).order(created_at: :desc)
       
-      	@interestgroups = Interestgroup.all.where("current_user.interest.include?('Fashion')")
+      	@interestgroups = Interestgroup.all.where('current_user.interest = ?',fashion)
       
    # @updates = Update.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
     respond_to do |format|
