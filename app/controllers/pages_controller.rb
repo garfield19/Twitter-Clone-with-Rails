@@ -26,6 +26,8 @@ include Twitter::Autolink
      WHERE follower_id = ? "
     @updates = Update.all.where("user_id IN(#{following_ids}) OR
       user_id = ?",current_user.id,current_user.id).paginate(page: params[:page], per_page: 6).order(created_at: :desc)
+    @updates = Update.all.where("user_id IN(#{following_ids}) OR
+      user_id = ?",current_user.id,current_user.id).order(created_at: :desc).limit(3)
       
       	@interestgroups = Interestgroup.all
       	
