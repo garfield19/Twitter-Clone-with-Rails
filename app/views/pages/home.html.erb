@@ -103,6 +103,7 @@
                 <% @arr = someone.interest.split(",") %>
                 <% @intersection1 = @arr1 & @arr %>
                   <% if !@intersection1.blank? %>
+                  <%= image_tag someone.avatar.url(:thumb), :class => 'img-circle' if  someone.avatar? %>
                    <a href="/user/<%= someone.username %>"><%= someone.username %> </a>(<b><%= @intersection1.size %></b> interests shared).<br>
                     <% else %>
                     
