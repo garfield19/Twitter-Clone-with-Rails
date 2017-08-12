@@ -82,14 +82,28 @@
   			
                 
                 Have you met?
-                 <H3>Suggested Hubs</H3><p>
+                <% @arr1 = current_user.interest.split(",") %>
+<% if User.last.interest %>
+          <% @arr1 = current_user.interest.split(",") %>
+          <% @arr2 = User.last.interest.split(",")%>
+				<p> <% @intersection = @arr1 & @arr2 %>
+          <% if !@intersection.blank? %>
+            You share <b><%= @intersection.size %></b> interests with <a href="/user/<%= User.last.username %>"><%= User.last.username %> </a>. which are <%= @intersection * "," %>
+            <% else %>
+            
+          <% end %>
+      <% else %>
+            
+          <% end %>
+          <P>
+            <H3>Suggested Hubs</H3><p>
           <% @a = User.order('RANDOM()').limit(5) %>
           <% @a.each do |someone| %>
              <% if someone.interest.present? %>
                 <% @arr = someone.interest.split(",") %>
                 <% @intersection1 = @arr1 & @arr %>
                   <% if !@intersection1.blank? %>
-                   <a href="/user/<%= someone.username %>"><%= image_tag someone.avatar.url(:thumb), :class => 'img-circle' if  someone.avatar? %><%= someone.username %> </a>(<b><%= @intersection1.size %></b> interests shared).<br>
+                   <a href="/user/<%= someone.username %>"><%= someone.username %> </a>(<b><%= @intersection1.size %></b> interests shared).<br>
                     <% else %>
                     
                   <% end %>
