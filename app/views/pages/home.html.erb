@@ -104,7 +104,7 @@
                 <% @intersection1 = @arr1 & @arr %>
                   <% if !@intersection1.blank? %>
                   <%= image_tag someone.avatar.url(:thumb), :class => 'img-circle' if  someone.avatar? %>
-                   <a href="/user/<%= someone.username %>"><%= someone.username %>  </a>(<b><%= @intersection1.size %></b> interests shared) 	<%= render '/components/network_button', :user => someone.id %>.<br>
+                   <a href="/user/<%= someone.username %>"><%= someone.username %>  </a>(<b><%= @intersection1.size %></b> interests shared) 	<%= render '/components/network_button', :user => User.find_by_username(someone.id) %>.<br>
                     <% else %>
                     
                   <% end %>
